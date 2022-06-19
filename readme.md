@@ -17,10 +17,10 @@
 
 ### **Connect with me...**
 
-&emsp;&emsp;&emsp;[<img src="./images/linkedin.svg" width=50 height=80 />](https://www.linkedin.com/in/philipmannering/)
-  [<img src="./images/twitter.svg" width=50 height=80 />](https://twitter.com/PhilipMannering)
-  [<img src="./images/github.svg" width=50 height=80 />](https://github.com/datatyper)
-  [<img src="./images/alteryx.svg" width=50 height=80 />](https://community.alteryx.com/t5/user/viewprofilepage/user-id/14780)
+&emsp;&emsp;&emsp;[<img src="./images/linkedin.svg" width=30 height=80 />](https://www.linkedin.com/in/philipmannering/)
+  [<img src="./images/twitter.svg" width=30 height=80 />](https://twitter.com/PhilipMannering)
+  [<img src="./images/github.svg" width=30 height=80 />](https://github.com/datatyper)
+  [<img src="./images/alteryx.svg" width=30 height=80 />](https://community.alteryx.com/t5/user/viewprofilepage/user-id/14780)
 
 <!-- Useful list of badges here...
 https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-readmemd-profile -->
