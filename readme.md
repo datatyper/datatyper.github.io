@@ -19,7 +19,7 @@
 
 <br/>
 
-&emsp;&emsp;&emsp;&emsp;[<img src="./images/linkedin.svg" width=50 height=80 />](https://www.linkedin.com/in/philipmannering/)
+&emsp;&emsp;&emsp;[<img src="./images/linkedin.svg" width=50 height=80 />](https://www.linkedin.com/in/philipmannering/)
   [<img src="./images/twitter.svg" width=50 height=80 />](https://twitter.com/PhilipMannering)
   [<img src="./images/github.svg" width=50 height=80 />](https://github.com/datatyper)
   [<img src="./images/alteryx.svg" width=50 height=80 />](https://community.alteryx.com/t5/user/viewprofilepage/user-id/14780)
@@ -40,7 +40,7 @@ https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-re
 ![PowerBI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=Power%20BI&logoColor=white)
 ![Dataiku](https://img.shields.io/badge/Dataiku-2AB1AC?style=for-the-badge&logo=dataiku&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=Databricks&logoColor=white)
-![Office](https://img.shields.io/badge/Microsoft_Office-D83B01?style=for-the-badge&logo=microsoft-office&logoColor=white)  
+![Office](https://img.shields.io/badge/Microsoft_Office-D83B01?style=for-the-badge&logo=microsoft-office&logoColor=white)
 ![VSCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![Visual Studio](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white)
 ![Affinity Designer](https://img.shields.io/badge/affinitydesginer-%231B72BE.svg?style=for-the-badge&logo=affinity-designer&logoColor=white)
@@ -58,7 +58,7 @@ https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-re
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)  
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
@@ -67,7 +67,7 @@ https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-re
 <br/>
 
 <!-- Show a graph of technologies on github -->
-![Stats](https://github-readme-stats.vercel.app/api/top-langs/?username={datatyper})
+<!-- ![Stats](https://github-readme-stats.vercel.app/api/top-langs/?username={datatyper}) -->
 
 <!-- ### Languages and Tools
 [<img align="left" alt="Visual Studio Code" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="padding-right:10px;" />][webdevplaylist]
@@ -87,10 +87,9 @@ https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-re
 
 <br />
 
----
 
-### 📕 **Latest Blog Posts**
-[Coming Soon...]()
+### 📕 **Latest Blog Posts...**
+* [Location Optimizer Macros: The Fourth Alteryx Macro](#)
 
 <!-- BLOG-POST-LIST:START -->
 <!-- - [Getting Started with MongoDB &amp; Mongoose](https://dev.to/codestackr/getting-started-with-mongodb-mongoose-2h6a)
@@ -100,24 +99,11 @@ https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-re
 - [Regular Expressions &lpar;RegEx&rpar; Crash Course](https://dev.to/codestackr/regular-expressions-regex-crash-course-248n) -->
 <!-- BLOG-POST-LIST:END -->
 
-➡️ [more blog posts...](https://datatype.com)
+[More blog posts...](https://datatype.com)
 
----
+<br/>
 
+### 📈 **GitHub Stats**
 
-<details>
-  <summary>:zap: GitHub Stats</summary>
+<img align="left" alt="codeSTACKr's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=datatyper&show_icons=true&hide_border=false&title_color=ff652f&icon_color=FFE400&bg_color=09131B&text_color=ffffff&border_color=0c1a25" />
 
-  <img align="left" alt="codeSTACKr's GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=datatyper&show_icons=true&hide_border=false&title_color=ff652f&icon_color=FFE400&bg_color=09131B&text_color=ffffff&border_color=0c1a25" />
-</details>
-
-[website]: https://codeSTACKr.com
-[course]: http://vsCodeHero.com
-[twitter]: https://twitter.com/codeSTACKr
-[youtube]: https://youtube.com/codeSTACKr
-[instagram]: https://instagram.com/codeSTACKr
-[linkedin]: https://linkedin.com/in/codeSTACKr
-[webdevplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrAJ0WbEsFA9W3I1W-g_BTsbt
-[jsplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrALRJKu7wfXby3MKeflhTu6B
-[cssplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrALSdvZuEh6gqQdmDoDIoqz4
-[reactplaylist]: https://www.youtube.com/playlist?list=PLkwxH9e_vrAK4TdffpxKY3QGyHCpxFcQ0
