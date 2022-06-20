@@ -8,7 +8,7 @@
 - 🔭 I'm an Alteryx ACE, Tableau Developer and Pythonista
 - 🌱 I’m currently learning everything 🤣
 - 🥅 2022 Goal: Learn to code GUI applications
-- ⚡ Fun fact: I love to draw 🎨 and skateboard 🛹 at the same time: my drawings are terrible...
+- ⚡ Fun fact: I love to draw 🎨 and skateboard 🛹 - at the same time ..my drawings are terrible.
 
 <br/>
 
@@ -84,6 +84,7 @@ https://github.com/alexandresanlim/Badges4-README.md-Profile#welcome-badges-4-re
 * [Location Optimizer Macros: The Fourth Alteryx Macro](#)
 
 <!-- BLOG-POST-LIST:START -->
+<!-- Refer to YouTube video on how to make this dynamic -->
 <!-- - [Getting Started with MongoDB &amp; Mongoose](https://dev.to/codestackr/getting-started-with-mongodb-mongoose-2h6a)
 - [How To Pass Application Tracking Systems &lpar;ATS&rpar; &amp; Get Interviews - Resume Tips for Software Developer](https://dev.to/codestackr/how-to-pass-application-tracking-systems-ats-get-interviews-resume-tips-for-software-developer-4bmo)
 - [Microinteractions: Password Validation Animation](https://dev.to/codestackr/microinteractions-password-validation-animation-5629)
