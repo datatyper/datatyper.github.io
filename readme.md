@@ -8,7 +8,7 @@
 - 🚀 I'm an Alteryx ACE, Tableau Developer and Pythonista
 - 🌱 I’m currently learning everything 🤣
 - 🥅 2022 Goal: Learn to code GUI applications
-- ⚡ Fun fact: I love to draw 🎨 and skateboard 🛹 - at the same time ..my drawings are terrible.
+- ⚡ Fun fact: I love to draw 🎨 and skateboard 🛹 - at the _same time_ ..my drawings are terrible.
 
 <br/>
 
