@@ -54,12 +54,12 @@ def update():
         blog_template = env.get_template('page.html')
         blog = blog_template.render(data)
 
-        with open(os.path.join('site', data['slug']), "w") as f:
+        with open(os.path.join('blog', data['slug']), "w") as f:
             f.write(blog)
 
     index_template = env.get_template('index.html')
     index = index_template.render({'items': items})
-    with open("site/index.html", "w") as f:
+    with open("index.html", "w") as f:
         f.write(index)
 
 
