@@ -2,8 +2,8 @@
 
 .portfolio-items-wrapper {
     display: grid;
-    // grid-gap: 10px;
-    // margin: 10px;
+    // grid-gap: 35px;
+    // margin: 30px;
     // grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
