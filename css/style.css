@@ -269,9 +269,16 @@ p code {
   background: #F5F9FC;
 }
 
+.content-wrapper {
+  margin: auto;
+  max-width: 1300px;
+}
+
 .portfolio-items-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 30px;
+  margin: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .portfolio-item {
@@ -281,6 +288,7 @@ p code {
 }
 
 .portfolio-item-img {
+  border-radius: 8px;
   position: absolute;
   height: 100%;
   width: 100%;
