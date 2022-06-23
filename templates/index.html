@@ -6,7 +6,6 @@
 {% block content %}
 
 <div class="content-wrapper">
-
     <div class="portfolio-items-wrapper">
         {% for page in items %}
             {% if status == "draft" %}
@@ -15,14 +14,14 @@
                 <div class="portfolio-item-info">
                     <h2>{{ title | title }}: WIP</h2>
                     <p>{{ summary }}</p>
-                    <p>{{ path }}</p>
+                    <p>{{ page.slug }}</p>
                     <span class="grow"></span>
                     <div class="meter">
                         <a href="{{ page.slug }}">
                             <span style="width: {{ progress or '10%' }}"></span>
                         </a>
                     </div>
-                    {# <a href="#" class="btn">Read More</a> #}
+                    {# <a href="#" class="btn">Read</a> #}
                 </div>
             </div>
 
@@ -33,7 +32,7 @@
                     <h2>{{ page.title | title}}</h2>
                     <p>{{ page.summary }}</p>
                     <span class="grow"></span>
-                    <a href="{{ page.slug }}" class="btn">Read More</a>
+                    <a href="{{ page.slug }}" class="btn">Read</a>
                 </div>
             </div>
             {# If the page status is not "draft" or "published" then it is not shown #}
