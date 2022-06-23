@@ -1,0 +1,33 @@
+.toctitle {
+    color: $primary;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.toc {
+    width: fit-content;
+    margin: 0 auto;
+
+    li::marker{
+        color: $primary;
+    }
+
+    ul {
+        list-style: decimal;
+        ul {
+            list-style: lower-alpha;
+            ul {
+                list-style: upper-roman;
+            }
+        }
+    }
+}
+
+.toc > ul {
+    padding-left: 0;
+}
+
+.toc li {
+    // margin: 0 1.5rem;
+}
+

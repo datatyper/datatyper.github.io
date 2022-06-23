@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<div class="content-wrapper">
+
+    <div class="portfolio-items-wrapper">
+        {% for page in items %}
+            {% if status == "draft" %}
+            <div class="portfolio-item">
+                <div class="portfolio-item-img wip" style="background-image: url('static/images/covers/wip.png')"></div>
+                <div class="portfolio-item-info">
+                    <h2>{{ title | title }}: WIP</h2>
+                    <p>{{ summary }}</p>
+                    <p>{{ path }}</p>
+                    <span class="grow"></span>
+                    <div class="meter">
+                        <a href="{{ path }}">
+                            <span style="width: {{ progress or '10%' }}"></span>
+                        </a>
+                    </div>
+                    {# <a href="#" class="btn">Read More</a> #}
+                </div>
+            </div>
+
+            {% elif page.status == "published" %}
+            <div class="portfolio-item">
+                <div class="portfolio-item-img" style="background-image: url('images/covers/blog.jpg')"></div>
+                <div class="portfolio-item-info">
+                    <h2>{{ page.title | title}}</h2>
+                    <p>{{ page.summary }}</p>
+                    <span class="grow"></span>
+                    <a href="{{ page.slug }}" class="btn">Read More</a>
+                </div>
+            </div>
+            {# If the page status is not "draft" or "published" then it is not shown #}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+// VARIABLES
+
+// Colors
+$primary: #06214C;
+$primary-darker: #04112E;
+$secondary: #33C8C3;
+$secondary-darker: #06ABA6;
+$red: #FF5F5F;
+$neutral: #F5F9FC;
+$off-white: #fcfcfc;
+
+// Transitions
+$transition: 0.15s;
+
+// Functions
+@mixin pad-and-space() {
+    margin: 1rem 2.5rem;
+    padding: 0.6rem 1rem;
+    overflow-x: auto;
+}

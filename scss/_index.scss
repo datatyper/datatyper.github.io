@@ -1,0 +1,71 @@
+// Portfolio Styles
+
+.portfolio-items-wrapper {
+    display: grid;
+    // grid-gap: 10px;
+    // margin: 10px;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.portfolio-item {
+    position:relative;
+    height: 330px;
+    width: 100%;
+}
+
+.portfolio-item-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all $transition;
+    filter: brightness(0.7);
+    // border-radius: 20px;
+}
+
+
+.portfolio-item:hover > .portfolio-item-img {
+    filter: brightness(0.4);
+    // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+}
+.portfolio-item-info {
+    // background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    h2 {
+        margin: 0;
+        text-align: center;
+    }
+    p {
+        text-align: justify;
+    }
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+
+
+// Read More!
+.btn {
+    padding: 10px;
+    color: white;
+    background-color: $primary;
+    border-radius: 5px;
+    align-self: center;
+    transition: all $transition;
+}
+
+.btn:hover {
+    background-color: $primary-darker;
+    color: white;
+}

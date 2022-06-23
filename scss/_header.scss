@@ -1,0 +1,25 @@
+header {
+    position: sticky;
+    // margin: 0;
+    padding: 8rem 2rem;
+    // font-size: 1.5rem;
+    // font-weight: 400;
+    // line-height: 1.5;
+    color: $primary;
+    // border-top: 1rem solid $primary;
+    border-bottom: .1rem solid $primary;
+    // padding-left: 1rem;
+    // margin-bottom: 1rem;
+    background-size: cover;
+    background-position: center;
+    // filter: brightness(0.7);
+    background-attachment: fixed;
+    // filter: blur(10px);
+}
+
+.header-info {
+    // background-attachment: fixed;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}

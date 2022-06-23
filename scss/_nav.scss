@@ -1,0 +1,114 @@
+/* NAVBAR */
+
+nav {
+    display: flex;
+    align-items: center;
+    background: $primary;
+}
+
+nav a {
+    display: inline-block;
+    color: $neutral;
+    padding: 0.8rem 2rem;
+    transition: all $transition;
+    &:hover {
+        background: $secondary;
+        color: white;
+        // cool effect ¬
+        // letter-spacing: 0.3rem;
+    }
+}
+
+.logo {
+    flex: 1;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+}
+
+.logo a {
+    padding: 0.8rem 2rem;
+    // overflow: hidden;
+
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+// Burger Icon
+.burger {
+    display: none;
+    cursor: pointer;
+    padding: 1rem;
+    div {
+        width: 25px;
+        height: 2px;
+        background: $neutral;
+        margin: 6px;
+        transition: all 0.3s ease;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    // TODO: remove this after fix for table and code fitting
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .logo a {
+        width: 100%;
+        text-align: center;
+        padding-left: 80px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: fixed;
+        right: 0px;
+        top: 70px;
+        background-color: $primary;
+        align-items: center;
+        width: 100%;
+        // Start properties for animation
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+
+    /* Nav animation - add classes using javascript */
+    // This class moves the links into view
+    .nav-active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    // These classes move divs to create an X out of a hamburger
+    .burger-active .line1 {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .burger-active .line2 {
+        transform: scaleX(0);
+        opacity: 0;
+        /* transform: rotate(90deg); */
+        /* opacity: 0; */
+    }
+
+    .burger-active .line3 {
+        transform: rotate(-45deg) translate(6px, -5px);
+    }
+
+}

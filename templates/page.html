@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} - blog{% endblock %}
+
+{% block content %}
+<header
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/covers/blog.jpg')">
+    <div class="header-info">
+        <h1>{{ title | upper }}</h1>
+        <h2>{{ subtitle | upper }}</h2>
+        <em>{{ summary }}</em>
+        <p>{{ (author | title) or "Philip" }} | {{ date }} | {{ category
+            |
+            title or "General" }}</p>
+    </div>
+</header>
+
+<div class="content">
+    {{ content | safe}}
+</div>
+
+{% endblock %}

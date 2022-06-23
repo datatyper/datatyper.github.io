@@ -1,0 +1,23 @@
+@import 'variables';
+
+
+code, code * {
+    font-family: monospace;
+}
+
+pre {
+    margin:0;
+    padding: 0;
+}
+
+.codehilite {
+    @include pad-and-space();
+}
+
+p code {
+    background: $neutral;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.1rem 0.5rem;
+}
+

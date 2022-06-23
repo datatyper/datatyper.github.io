@@ -1,0 +1,93 @@
+// Hello, World
+
+@import 'variables';
+@import 'nav';
+@import 'toc';
+@import 'table';
+@import 'code';
+@import 'alerts';
+@import 'class';
+@import 'index';
+@import 'progressbar';
+@import 'header';
+
+
+// Global properties
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: $neutral;
+    margin: 0;
+}
+
+// The raised paper styling
+.content {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1000px;
+    background: $off-white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+// Increase the font size of all text elements, excluding headers.
+p, code, li, td {
+    font-size: 1rem;
+}
+
+// Links are slightly bold
+a {
+    text-decoration: none;
+    font-weight: 400;
+    color: $primary;
+    &:hover {
+        color: $secondary;
+        // font-weight: 00;
+    }
+}
+
+
+hr {
+    background-color: $primary;
+    margin: 3rem 0;
+    padding: 1px;
+    // margin: 3rem 0;
+    height: 1px;
+    border: none;
+}
+
+blockquote {
+    @include pad-and-space;
+    background: $neutral;
+    border-left: 10px solid $primary;
+    quotes: "\201C""\201D""\2018""\2019";
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+img {
+    @include pad-and-space();
+    display: block;
+    margin: 0 auto;
+    // padding: 0;
+}
+
+dl {
+    @include pad-and-space();
+    background-color: $neutral;
+    dt {
+        font-weight: bold;
+        color: $primary;
+    }
+}
+
+abbr {
+    text-decoration-thickness: 2px;
+    // text-decoration-color: $primary;
+    // text-decoration: none;
+    // border-bottom: 3px dotted $primary;
+}

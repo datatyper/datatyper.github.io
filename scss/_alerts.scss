@@ -1,0 +1,64 @@
+/*-----------------------
+        ALERTS
+------------------------- */
+.admonition {
+    @include pad-and-space();
+    padding: 0;
+    display: flex;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.admonition-title {
+    flex: 0 1 110px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.admonition-title::after {
+    content: "!";
+}
+
+.admonition p {
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+
+.warning {
+    background-color: hsl(55, 100%, 80%);
+    border-color: hsl(55, 100%, 50%);
+}
+
+.warning>.admonition-title {
+    background-color: hsl(55, 100%, 50%);
+}
+
+.danger {
+    background-color: hsl(0, 100%, 80%);
+    border-color: hsl(0, 100%, 50%);
+}
+
+.danger>.admonition-title {
+    background-color: hsl(0, 100%, 50%);
+    color: white;
+}
+
+.info {
+    background-color: hsl(200, 100%, 80%);
+    border-color: hsl(200, 100%, 50%);
+}
+
+.info>.admonition-title {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+}
+
+.success {
+    background-color: hsl(150, 80%, 80%);
+    border-color: hsl(150, 80%, 35%);
+}
+
+.success>.admonition-title {
+    background-color: hsl(150, 80%, 35%);
+    color: white;
+}

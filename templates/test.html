@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datatype - Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 0 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Metadata</h1>
+    <p>page.meta = {{ page.meta }}</p>
+    <p>page.title = {{ page.title | title }}</p>
+    <p>page.subtitle = {{ page.subtitle | upper }}</p>
+    <p>page.summary = {{ page.summary | upper }}</p>
+    <p>page.author = {{ page.author | title or "Philip" }}</p>
+    <p>page.category = {{ page.category | title or "General" }}</p>
+    <p>page.date = {{ page.date.strftime('%B %Y') }}</p>
+    {% for tag in page.tags %}
+    <p>page.tags = {{ tag }}</p>
+    {% endfor %}
+
+    <p>page.path = {{ page.path }}</p>
+    <p>The page.body = {{ page.body }}</p>
+    <p>The page.html = {{ page.html }}</p>
+
+
+    <h1>The page...</h1>
+    <hr>
+    {{ page }}
+
+
+
+</body>
+
+</html>

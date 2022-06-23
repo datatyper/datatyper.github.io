@@ -1,0 +1,33 @@
+// CUSTOM CLASSES
+
+// Light code block
+.code {
+    @include pad-and-space();
+    // font-size: large;
+    font-family: monospace;
+    background-color: #f6f6f6;
+    border: solid 1px #aaa;
+}
+
+// Demo class - blue backgroynd, white text
+.inverse {
+    @include pad-and-space();
+    background-color: $primary;
+    color: $off-white;
+}
+
+.row {
+    display: flex;
+    // border: solid 1px #aaa;
+}
+
+.col {
+    padding: 2rem 1rem;    
+    width: 50%;
+    // border: solid 1px red;
+}
+
+.col:last-child {
+    background: $neutral;
+    // border: solid 1px blue;
+}
