@@ -32,16 +32,17 @@ def update():
 
         data = {item.split(':')[0].strip(): item.split(':')[1].strip()
                 for item in meta.split('\n')}
-
+        print(data)
         # Only convert published datas, else ignore.
         if data.get('status') != 'published':
             continue
 
         # Convert the body to HTML
         # Add the html to the data dictionary
-        # Add the data dictionary to the items list
         data['content'] = markdown(body, extensions=['tables', 'codehilite', 'fenced_code'])
-        data['slug'] = page.replace('.md', '.html')
+        # Add the path to blog
+        data['slug'] = os.path.join('blog', page.replace('.md', '.html'))
+        # Add the data dictionary to the items list
         items.append(data)
 
         # Load the template and write html file
@@ -54,7 +55,7 @@ def update():
         blog_template = env.get_template('page.html')
         blog = blog_template.render(data)
 
-        with open(os.path.join('blog', data['slug']), "w") as f:
+        with open(data['slug'], "w") as f:
             f.write(blog)
 
     index_template = env.get_template('index.html')
