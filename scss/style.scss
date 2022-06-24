@@ -15,7 +15,7 @@
 // Global properties
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     margin: 2rem auto;
     padding: 2rem;
     max-width: 1000px;
-    background: $off-white;
+    background: white;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
@@ -38,13 +38,12 @@ p, code, li, td {
 }
 
 // Links are slightly bold
-a {
+.content a {
     text-decoration: none;
-    font-weight: 400;
     color: $primary;
+    font-weight: 600;
     &:hover {
         color: $secondary;
-        // font-weight: 00;
     }
 }
 

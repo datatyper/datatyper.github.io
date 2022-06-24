@@ -7,6 +7,8 @@ nav {
 }
 
 nav a {
+  text-decoration: none;
+  color: #06214C;
   font-size: 18px;
   position: relative;
   display: inline-block;
@@ -371,25 +373,20 @@ p code {
 }
 
 header {
-  position: -webkit-sticky;
-  position: sticky;
   padding: 8rem 2rem;
   color: #06214C;
-  border-bottom: 0.1rem solid #06214C;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 .header-info {
   color: white;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 1rem;
 }
 
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -401,7 +398,7 @@ body {
   margin: 2rem auto;
   padding: 2rem;
   max-width: 1000px;
-  background: #fcfcfc;
+  background: white;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
@@ -409,12 +406,12 @@ p, code, li, td {
   font-size: 1rem;
 }
 
-a {
+.content a {
   text-decoration: none;
-  font-weight: 400;
   color: #06214C;
+  font-weight: 600;
 }
-a:hover {
+.content a:hover {
   color: #33C8C3;
 }
 

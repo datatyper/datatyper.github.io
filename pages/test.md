@@ -14,6 +14,8 @@ This is **bold** text
 This is *italic* text  
 This is ***bold and italic*** text  
 
+Visit the bbc [here](www.bbc.co.uk)
+
 ## Table
 
 a | b | c
@@ -26,7 +28,7 @@ Here is some code
 
 ```python
 for i in range(10):
-    print(i)
+    print('number', i)
 ```
 
 Here is some powershell
