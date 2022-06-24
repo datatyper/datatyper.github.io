@@ -3,37 +3,55 @@
 nav {
     display: flex;
     align-items: center;
-    background: $primary;
+    margin-bottom: 10px;
 }
 
+
 nav a {
+    position: relative;
     display: inline-block;
-    color: $neutral;
-    padding: 0.8rem 2rem;
-    transition: all $transition;
+    padding: 1rem 1.6rem;
     &:hover {
-        background: $secondary;
-        color: white;
+        color: $primary;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $primary;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    &:hover::before {
+        transform: scaleX(0.66);
+    }
+    // &:hover {
+        // background: $secondary;
+        // border-bottom: 5px solid $primary;
+        // transform-origin: bottom left;
         // cool effect ¬
         // letter-spacing: 0.3rem;
-    }
+    // }
 }
 
 .logo {
     flex: 1;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.6rem;
     text-transform: uppercase;
 }
 
 .logo a {
-    padding: 0.8rem 2rem;
-    // overflow: hidden;
+    font-weight:600;
 
 }
 
 .nav-links {
-    display: flex;
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
 }
