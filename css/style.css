@@ -7,6 +7,7 @@ nav {
 }
 
 nav a {
+  font-size: 18px;
   position: relative;
   display: inline-block;
   padding: 1rem 1.6rem;
@@ -31,13 +32,10 @@ nav a:hover::before {
 }
 
 .logo {
+  padding: 0 20px;
   flex: 1;
   letter-spacing: 0.6rem;
   text-transform: uppercase;
-}
-
-.logo a {
-  font-weight: 600;
 }
 
 .nav-links {
@@ -55,7 +53,7 @@ nav a:hover::before {
 .burger div {
   width: 25px;
   height: 2px;
-  background: #F5F9FC;
+  background: #06214C;
   margin: 6px;
   transition: all 0.3s ease;
 }
@@ -68,7 +66,7 @@ nav a:hover::before {
   .logo a {
     width: 100%;
     text-align: center;
-    padding-left: 80px;
+    margin-left: 40px;
   }
 
   .burger {
@@ -80,7 +78,7 @@ nav a:hover::before {
     position: fixed;
     right: 0px;
     top: 70px;
-    background-color: #06214C;
+    background-color: #F5F9FC;
     align-items: center;
     width: 100%;
     opacity: 0;

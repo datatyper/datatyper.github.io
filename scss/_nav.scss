@@ -8,6 +8,7 @@ nav {
 
 
 nav a {
+    font-size: 18px;
     position: relative;
     display: inline-block;
     padding: 1rem 1.6rem;
@@ -39,15 +40,12 @@ nav a {
 }
 
 .logo {
+    padding:0 20px;
     flex: 1;
     letter-spacing: 0.6rem;
     text-transform: uppercase;
 }
 
-.logo a {
-    font-weight:600;
-
-}
 
 .nav-links {
     list-style: none;
@@ -65,7 +63,7 @@ nav a {
     div {
         width: 25px;
         height: 2px;
-        background: $neutral;
+        background: $primary;
         margin: 6px;
         transition: all 0.3s ease;
     }
@@ -83,7 +81,7 @@ nav a {
     .logo a {
         width: 100%;
         text-align: center;
-        padding-left: 80px;
+        margin-left: 40px;
     }
 
     .burger {
@@ -95,7 +93,7 @@ nav a {
         position: fixed;
         right: 0px;
         top: 70px;
-        background-color: $primary;
+        background-color: $neutral;
         align-items: center;
         width: 100%;
         // Start properties for animation
