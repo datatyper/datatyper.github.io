@@ -12,27 +12,33 @@
             <div class="portfolio-item">
                 <div class="portfolio-item-img wip" style="background-image: url('static/images/covers/wip.png')"></div>
                 <div class="portfolio-item-info">
-                    <h2>{{ title | title }}: WIP</h2>
-                    <p>{{ summary }}</p>
-                    <p>{{ page.slug }}</p>
+                    <p class="category-tag">{{ page.category }}</p>
+                    <h2>{{ page.title }}: WIP</h2>
+                    <p>{{ page.summary }}</p>
+                    <p>{{ page.url }}</p>
                     <span class="grow"></span>
                     <div class="meter">
-                        <a href="{{ page.slug }}">
-                            <span style="width: {{ progress or '10%' }}"></span>
+                        <a href="{{ page.url }}">
+                            <span style="width: {{ page.progress or '10%' }}"></span>
                         </a>
                     </div>
                     {# <a href="#" class="btn">Read Me</a> #}
                 </div>
             </div>
-
+            
             {% elif page.status == "published" %}
             <div class="portfolio-item">
                 <div class="portfolio-item-img" style="background-image: url('images/covers/blog.jpg')"></div>
                 <div class="portfolio-item-info">
-                    <h2>{{ page.title | title}}</h2>
+                    {% if page.category %}
+                    <div class="category-tags">
+                        <div class="category-tag">{{ page.category }}</div>
+                    </div>
+                    {% endif %}
+                    <h2>{{ page.title }}</h2>
                     <p>{{ page.summary }}</p>
                     <span class="grow"></span>
-                    <a href="{{ page.slug }}" class="btn">Read Me</a>
+                    <a href="{{ page.url }}" class="btn">Read Me</a>
                 </div>
             </div>
             {# If the page status is not "draft" or "published" then it is not shown #}
@@ -41,8 +47,5 @@
     </div>
 
 </div>
-
-
-
 
 {% endblock %}

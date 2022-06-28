@@ -7,7 +7,6 @@ nav {
 }
 
 nav a {
-  text-decoration: none;
   color: #06214C;
   font-size: 18px;
   position: relative;
@@ -320,7 +319,7 @@ p code {
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   color: white;
@@ -331,6 +330,18 @@ p code {
 }
 .portfolio-item-info p {
   text-align: justify;
+}
+
+.category-tags {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.category-tag {
+  padding: 3px 5px;
+  font-size: 0.8em;
+  border-radius: 10px;
+  background-color: #06214C;
 }
 
 .grow {
@@ -345,9 +356,8 @@ p code {
   align-self: center;
   transition: all 0.15s;
 }
-
 .btn:hover {
-  background-color: #04112E;
+  background-color: #33C8C3;
   color: white;
 }
 
@@ -406,8 +416,11 @@ p, code, li, td {
   font-size: 1rem;
 }
 
-.content a {
+a {
   text-decoration: none;
+}
+
+.content a {
   color: #06214C;
   font-weight: 600;
 }

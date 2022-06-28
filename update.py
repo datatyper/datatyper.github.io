@@ -41,7 +41,8 @@ def update():
         # Add the html to the data dictionary
         data['content'] = markdown(body, extensions=['tables', 'codehilite', 'fenced_code'])
         # Add the path to blog
-        data['slug'] = os.path.join('blog', page.replace('.md', '.html'))
+        data['url'] = os.path.join('blog', page.replace('.md', '.html'))
+        # data.setdefault('category', 'other')
         # Add the data dictionary to the items list
         items.append(data)
 
@@ -55,7 +56,7 @@ def update():
         blog_template = env.get_template('page.html')
         blog = blog_template.render(data)
 
-        with open(data['slug'], "w") as f:
+        with open(data['url'], "w") as f:
             f.write(blog)
 
     index_template = env.get_template('index.html')

@@ -32,21 +32,24 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
+
 // Increase the font size of all text elements, excluding headers.
 p, code, li, td {
     font-size: 1rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 // Links are slightly bold
 .content a {
-    text-decoration: none;
     color: $primary;
     font-weight: 600;
     &:hover {
         color: $secondary;
     }
 }
-
 
 hr {
     background-color: $primary;

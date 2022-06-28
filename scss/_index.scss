@@ -42,7 +42,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -55,11 +55,22 @@
     }
 }
 
-.grow {
-    flex-grow: 1;
+.category-tags {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.category-tag {
+    padding: 3px 5px;
+    font-size: 0.8em;
+    border-radius: 10px;
+    background-color: $primary;
 }
 
 
+.grow {
+    flex-grow: 1;
+}
 
 // Read More!
 .btn {
@@ -69,9 +80,9 @@
     border-radius: 5px;
     align-self: center;
     transition: all $transition;
+    &:hover {
+        background-color: $secondary;
+        color: white;
+    }
 }
 
-.btn:hover {
-    background-color: $primary-darker;
-    color: white;
-}
