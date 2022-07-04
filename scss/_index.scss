@@ -32,10 +32,8 @@
     // border-radius: 20px;
 }
 
-
 .portfolio-item:hover > .portfolio-item-img {
     filter: brightness(0.4);
-    // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 }
 .portfolio-item-info {
     // background-color: rgba(0, 0, 0, 0.5);
@@ -47,24 +45,12 @@
     flex-direction: column;
     color: white;
     h2 {
-        margin: 0;
+        margin: 10px 0 0 0;
         text-align: center;
     }
     p {
-        text-align: justify;
+        text-align: center; // justify
     }
-}
-
-.category-tags {
-    display:flex;
-    justify-content: flex-end;
-}
-
-.category-tag {
-    padding: 3px 5px;
-    font-size: 0.8em;
-    border-radius: 10px;
-    background-color: $primary;
 }
 
 

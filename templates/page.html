@@ -6,11 +6,12 @@
 <header
     style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/covers/blog.jpg')">
     <div class="header-info">
-        <div class="category-label"><p>{{ category }}</p></div>
+        <div class="category-tags">
+            <div class="category-tag {{category}}">{{ category }}</div>
+        </div>
         <h1>{{ title | upper }}</h1>
-        <h2>{{ subtitle | upper }}</h2>
-        <em>{{ summary }}</em>
-        <p>{{ (author | title) or "Philip" }} | {{ date }} | {{ category | title or "General" }}</p>
+        <p><em>{{ summary }}</em></p>
+        <p><em>{{ (author | title) or "Philip" }} <span class="divider">//</span> {{ date.strftime('%Y %B') }}</em></p>
     </div>
 </header>
 

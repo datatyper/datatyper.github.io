@@ -325,23 +325,11 @@ p code {
   color: white;
 }
 .portfolio-item-info h2 {
-  margin: 0;
+  margin: 10px 0 0 0;
   text-align: center;
 }
 .portfolio-item-info p {
-  text-align: justify;
-}
-
-.category-tags {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.category-tag {
-  padding: 3px 5px;
-  font-size: 0.8em;
-  border-radius: 10px;
-  background-color: #06214C;
+  text-align: center;
 }
 
 .grow {
@@ -384,6 +372,7 @@ p code {
 
 header {
   padding: 8rem 2rem;
+  align-items: left;
   color: #06214C;
   background-size: cover;
   background-position: center;
@@ -391,7 +380,29 @@ header {
 }
 
 .header-info {
+  text-align: left;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: white;
+}
+
+.header-info h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.header-info p {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.divider {
+  color: #06214C;
+  padding: 0 0.3rem;
+  font-weight: normal;
 }
 
 * {
@@ -410,6 +421,23 @@ body {
   max-width: 1000px;
   background: white;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.category-tags {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-info .category-tags {
+  justify-content: flex-start;
+  margin: 16px 0;
+}
+
+.category-tag {
+  padding: 2px 8px;
+  font-size: 0.8em;
+  border-radius: 10px;
+  background-color: #06214C;
 }
 
 p, code, li, td {

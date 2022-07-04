@@ -32,6 +32,27 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
+.category-tags {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.header-info .category-tags {
+    justify-content: flex-start;
+    margin: 16px 0;
+}
+
+.category-tag {
+    padding: 2px 8px;
+    font-size: 0.8em;
+    border-radius: 10px;
+    background-color: $primary;
+}
+
+// For when I want to color the tags by category
+// .category-tag.alteryx {
+//     background-color: $alteryx;
+// }
 
 // Increase the font size of all text elements, excluding headers.
 p, code, li, td {

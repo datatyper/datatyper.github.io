@@ -12,7 +12,9 @@
             <div class="portfolio-item">
                 <div class="portfolio-item-img wip" style="background-image: url('static/images/covers/wip.png')"></div>
                 <div class="portfolio-item-info">
-                    <p class="category-tag">{{ page.category }}</p>
+                    <div class="category-tags">
+                        <div class="category-tag {{page.category}}">{{ page.category }}</div>
+                    </div>
                     <h2>{{ page.title }}: WIP</h2>
                     <p>{{ page.summary }}</p>
                     <p>{{ page.url }}</p>
@@ -32,7 +34,7 @@
                 <div class="portfolio-item-info">
                     {% if page.category %}
                     <div class="category-tags">
-                        <div class="category-tag">{{ page.category }}</div>
+                        <div class="category-tag {{page.category}}">{{ page.category }}</div>
                     </div>
                     {% endif %}
                     <h2>{{ page.title }}</h2>

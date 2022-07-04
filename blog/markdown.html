@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
+    <title>Datatype - blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <script src="/js/main.js" async defer></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+<nav>
+    <div class="logo">
+        <a href="/index.html">Datatype</a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/index.html">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Projects</a></li>
+    </ul>
+    <div class="burger" onclick="toggleNav()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+    
+<header
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/covers/blog.jpg')">
+    <div class="header-info">
+        <div class="category-tags">
+            <div class="category-tag miscellaneous">miscellaneous</div>
+        </div>
+        <h1>A COMPLETE GUIDE TO MARKDOWN</h1>
+        <!-- <h2></h2> -->
+        <p><em>A complete guide to the Markdown language. Use it as a reference for your static website or GitHub readme files.</em></p>
+        <p><em>Philip <span class="divider">//</span> 2021 November</em></p>
+    </div>
+</header>
+
+<div class="content">
+    <p>[TOC]</p>
+<h1># This is Heading 1</h1>
+<h2>## This is Heading 2</h2>
+<h3>### This is Heading 3</h3>
+<h4>#### This is Heading 4</h4>
+<h5>##### This is Heading 5</h5>
+<p>A horizontal rule is three or more dashes, asterisks, or underscores (e.g. ---, ***, ___).  </p>
+<hr />
+<div class="codehilite"><pre><span></span><code><span class="c1"># This is a code block</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This is a regular paragraph.<br />
+This is *<em>italic</em>* text.<br />
+This is **<strong>bold</strong>** text.<br />
+This is ***<strong><em>bold and italic</em></strong>*** text.  </p>
+<p>"This has quotation marks" -- "and".<br />
+It's got an apostrophe - it works
+Ellipsis...</p>
+<p>This is ~~strikethrough~~ text.<br />
+This is some ^^superscript^^ text.<br />
+This is some ~~~subscript~~~ text.</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\*\*</code></td>
+<td>Bold</td>
+</tr>
+<tr>
+<td><code>\_</code></td>
+<td>Italic</td>
+</tr>
+<tr>
+<td><code>\*\*\*</code></td>
+<td>Bold + Italic</td>
+</tr>
+<tr>
+<td><code>\~\~</code></td>
+<td>Strikethrough</td>
+</tr>
+<tr>
+<td><code>\^\^</code></td>
+<td>Superscript</td>
+</tr>
+<tr>
+<td><code>\~\~\~</code></td>
+<td>Subscript</td>
+</tr>
+</tbody>
+</table>
+<p>An unordered list with a dash or asterisk:  </p>
+<ul>
+<li>List item 1  </li>
+<li>List item 2  </li>
+<li>List item 3<ul>
+<li>List item 3a</li>
+<li>List item 3b</li>
+</ul>
+</li>
+<li>List item 4</li>
+</ul>
+<p>An ordered list with any number and a period (e.g. <code>1.</code>): </p>
+<ol>
+<li>List item 1</li>
+<li>List item 2</li>
+<li>List item 3  </li>
+<li>a List item 3.1  <ol>
+<li>b List item 3.2</li>
+</ol>
+</li>
+<li>List item 4</li>
+</ol>
+<p>A block quote with a <code>&gt;</code></p>
+<blockquote>
+<p>> This is a block quote.<br />
+> This is the same block quote.</p>
+</blockquote>
+<p>Inline code with backticks, e.g. <code>E = mc^2</code>.</p>
+<p>A code block uses three backticks:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">code</span> <span class="n">block</span><span class="p">.</span>
+</code></pre></div>
+
+<p>This is a link to [Wikipedia](https://en.wikipedia.org/wiki/Markdown).<br />
+This is a link to <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a>.</p>
+<p>This is an image,  </p>
+<p><img alt="Solar System" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png" /></p>
+<h2>Markdown Extra {#markdown-extra}</h2>
+<h3>Abbreviations</h3>
+<p>Declare some abbreviations (which are also useful for tooltip definitions) and then use them in your text,</p>
+<div class="codehilite"><pre><span></span><code>*[HTML]: Hypertext Markup Language
+*[MD]: Markdown
+*[CSS]: Cascading Style Sheets
+
+This page is written in MD, converted to HTML and styled with CSS.
+</code></pre></div>
+
+<p><em>[HTML]: Hypertext Markup Language
+</em>[MD]: Markdown
+*[CSS]: Cascading Style Sheets</p>
+<p>This page is written in MD, converted to HTML and styled with CSS.</p>
+<h3>Attribute List</h3>
+<p>Create custom classes by adding <code>{: .classname}</code> after a markdown element.</p>
+<p>For example,</p>
+<div class="codehilite"><pre><span></span><code>This is a highlighted paragraph
+{: .highlight}
+</code></pre></div>
+
+<p>To produce (with some css styling),</p>
+<p>This is a hightlighted paragraph
+{: .highlight}</p>
+<h3>Definition Lists</h3>
+<p>Create definition lists with,</p>
+<div class="codehilite"><pre><span></span><code>Mercury
+: The smallest planet in the solar system.
+
+Venus
+: The second smallest planet in the solar system.
+
+Earth
+: The third planet from the sun.
+: The red planet.
+: Where the martians are from.
+</code></pre></div>
+
+<p>To produce,</p>
+<p>Mercury
+: The smallest planet in the solar system.</p>
+<p>Venus
+: The second smallest planet in the solar system.</p>
+<p>Earth
+: The third planet from the sun.</p>
+<p>Mars
+: The fourth planet from the sun.
+: The red planet.
+: Where the martians are from.</p>
+<h3>Admonition</h3>
+<p>!!! warning
+    This is a warning message.<br />
+    This is a warning message.<br />
+    This is a warning message.  </p>
+<p>!!! danger
+    This is a danger message.</p>
+<p>!!! info
+    This is information message.</p>
+<p>!!! success
+    This is a success message.</p>
+</div>
+
+
+    
+    
+</body>
+
+</html>
