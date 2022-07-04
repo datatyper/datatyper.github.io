@@ -38,36 +38,72 @@
             <div class="category-tag miscellaneous">miscellaneous</div>
         </div>
         <h1>A COMPLETE GUIDE TO MARKDOWN</h1>
-        <!-- <h2></h2> -->
         <p><em>A complete guide to the Markdown language. Use it as a reference for your static website or GitHub readme files.</em></p>
         <p><em>Philip <span class="divider">//</span> 2021 November</em></p>
     </div>
 </header>
 
 <div class="content">
-    <p>[TOC]</p>
-<h1># This is Heading 1</h1>
-<h2>## This is Heading 2</h2>
-<h3>### This is Heading 3</h3>
-<h4>#### This is Heading 4</h4>
-<h5>##### This is Heading 5</h5>
-<p>A horizontal rule is three or more dashes, asterisks, or underscores (e.g. ---, ***, ___).  </p>
+    <div class="toc">
+<ul>
+<li><a href="#this-is-heading-1"># This is Heading 1</a><ul>
+<li><a href="#this-is-heading-2">## This is Heading 2</a><ul>
+<li><a href="#this-is-heading-3">### This is Heading 3</a><ul>
+<li><a href="#this-is-heading-4">#### This is Heading 4</a><ul>
+<li><a href="#this-is-heading-5">##### This is Heading 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#text-styling">Text Styling</a></li>
+<li><a href="#lists">Lists</a><ul>
+<li><a href="#unordered-list">Unordered List</a></li>
+<li><a href="#ordered-list">Ordered List</a></li>
+</ul>
+</li>
+<li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#links">Links</a><ul>
+<li><a href="#hyperlinks">Hyperlinks</a></li>
+<li><a href="#images">Images</a></li>
+</ul>
+</li>
+<li><a href="#markdown-extra">Markdown Extra</a><ul>
+<li><a href="#abbreviations">Abbreviations</a></li>
+<li><a href="#attribute-list">Attribute List</a></li>
+<li><a href="#definition-lists">Definition Lists</a></li>
+<li><a href="#admonition">Admonition</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="this-is-heading-1"># This is Heading 1</h1>
+<h2 id="this-is-heading-2">## This is Heading 2</h2>
+<h3 id="this-is-heading-3">### This is Heading 3</h3>
+<h4 id="this-is-heading-4">#### This is Heading 4</h4>
+<h5 id="this-is-heading-5">##### This is Heading 5</h5>
+<p>A horizontal rule is three or more dashes, asterisks, or underscores (e.g. <code>---</code> or <code>***</code> or <code>___</code>).  </p>
 <hr />
-<div class="codehilite"><pre><span></span><code><span class="c1"># This is a code block</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</code></pre></div>
+<!-- ```python
+# This is a code block
+for i in range(10):
+    print(i)
+``` -->
+<!-- # Emojis
+:smile: :heart: :thumbsup: -->
 
+<h1 id="text-styling">Text Styling</h1>
+<p>Get bold or italic text using <code>*</code> or <code>_</code></p>
 <p>This is a regular paragraph.<br />
-This is *<em>italic</em>* text.<br />
-This is **<strong>bold</strong>** text.<br />
-This is ***<strong><em>bold and italic</em></strong>*** text.  </p>
-<p>"This has quotation marks" -- "and".<br />
-It's got an apostrophe - it works
-Ellipsis...</p>
-<p>This is ~~strikethrough~~ text.<br />
-This is some ^^superscript^^ text.<br />
-This is some ~~~subscript~~~ text.</p>
+This is *<em>italic</em>*<br />
+This is **<strong>bold</strong>**<br />
+This is ***<strong><em>bold and italic</em></strong>***<br />
+This is ~~<del>strikethrough</del>~~<br />
+This is inline `<code>code</code>`  </p>
 <table>
 <thead>
 <tr>
@@ -77,32 +113,34 @@ This is some ~~~subscript~~~ text.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>\*\*</code></td>
+<td><code>**</code> or <code>__</code></td>
 <td>Bold</td>
 </tr>
 <tr>
-<td><code>\_</code></td>
+<td><code>_</code></td>
 <td>Italic</td>
 </tr>
 <tr>
-<td><code>\*\*\*</code></td>
+<td><code>***</code></td>
 <td>Bold + Italic</td>
 </tr>
 <tr>
-<td><code>\~\~</code></td>
+<td><code>~~</code></td>
 <td>Strikethrough</td>
-</tr>
-<tr>
-<td><code>\^\^</code></td>
-<td>Superscript</td>
-</tr>
-<tr>
-<td><code>\~\~\~</code></td>
-<td>Subscript</td>
 </tr>
 </tbody>
 </table>
-<p>An unordered list with a dash or asterisk:  </p>
+<h1 id="lists">Lists</h1>
+<h2 id="unordered-list">Unordered List</h2>
+<p>Create an unordered list with a dash <code>-</code> or asterisk <code>*</code>:  </p>
+<div class="codehilite"><pre><span></span><code>- List item 1  
+- List item 2  
+- List item 3
+    - List item 3a
+    - List item 3b
+- List item 4
+</code></pre></div>
+
 <ul>
 <li>List item 1  </li>
 <li>List item 2  </li>
@@ -113,56 +151,72 @@ This is some ~~~subscript~~~ text.</p>
 </li>
 <li>List item 4</li>
 </ul>
-<p>An ordered list with any number and a period (e.g. <code>1.</code>): </p>
+<h2 id="ordered-list">Ordered List</h2>
+<p>Create an ordered list with any number and a period (e.g. <code>1.</code>): </p>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span> <span class="kr">List</span> <span class="n">item</span>
+<span class="mf">1.</span> <span class="kr">List</span> <span class="n">item</span>
+<span class="mf">1.</span> <span class="kr">List</span> <span class="n">item</span>
+    <span class="mf">1.</span> <span class="kr">List</span> <span class="n">item</span>
+    <span class="mf">1.</span> <span class="kr">List</span> <span class="n">item</span>
+<span class="mf">1.</span> <span class="kr">List</span> <span class="n">item</span>
+</code></pre></div>
+
 <ol>
-<li>List item 1</li>
-<li>List item 2</li>
-<li>List item 3  </li>
-<li>a List item 3.1  <ol>
-<li>b List item 3.2</li>
+<li>List item</li>
+<li>List item</li>
+<li>List item  <ol>
+<li>List item</li>
+<li>List item</li>
 </ol>
 </li>
-<li>List item 4</li>
+<li>List item</li>
 </ol>
+<h1 id="blockquotes">Blockquotes</h1>
 <p>A block quote with a <code>&gt;</code></p>
+<div class="codehilite"><pre><span></span><code>&gt; This is a block quote.  
+&gt; This is the same block quote.
+</code></pre></div>
+
 <blockquote>
-<p>> This is a block quote.<br />
-> This is the same block quote.</p>
+<p>This is a block quote.<br />
+This is the same block quote.</p>
 </blockquote>
-<p>Inline code with backticks, e.g. <code>E = mc^2</code>.</p>
+<h1 id="code">Code</h1>
+<p>Create inline code with backticks, e.g. <code>E = mc^2</code>.</p>
 <p>A code block uses three backticks:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">code</span> <span class="n">block</span><span class="p">.</span>
+<div class="codehilite"><pre><span></span><code>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>This is a link to [Wikipedia](https://en.wikipedia.org/wiki/Markdown).<br />
-This is a link to <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a>.</p>
-<p>This is an image,  </p>
-<p><img alt="Solar System" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png" /></p>
-<h2>Markdown Extra {#markdown-extra}</h2>
-<h3>Abbreviations</h3>
+<h1 id="links">Links</h1>
+<h2 id="hyperlinks">Hyperlinks</h2>
+<p>This is a link to <code>[Wikipedia](https://en.wikipedia.org/wiki/Markdown)</code><br />
+This is a link to <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a>  </p>
+<h2 id="images">Images</h2>
+<p>This is an image,<br />
+<code>![Solar System](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png)</code></p>
+<p>This is an image,<br />
+<img alt="Solar System" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png" /></p>
+<h1 id="markdown-extra">Markdown Extra</h1>
+<p>It is possible to get additional markdown support with the Markdown Extra extension. You can find a list of the available features <a href="https://python-markdown.github.io/extensions/">here</a>.</p>
+<h2 id="abbreviations">Abbreviations</h2>
 <p>Declare some abbreviations (which are also useful for tooltip definitions) and then use them in your text,</p>
-<div class="codehilite"><pre><span></span><code>*[HTML]: Hypertext Markup Language
-*[MD]: Markdown
+<div class="codehilite"><pre><span></span><code>*[MD]: Markdown
+*[HTML]: Hypertext Markup Language
 *[CSS]: Cascading Style Sheets
-
-This page is written in MD, converted to HTML and styled with CSS.
 </code></pre></div>
 
-<p><em>[HTML]: Hypertext Markup Language
-</em>[MD]: Markdown
-*[CSS]: Cascading Style Sheets</p>
-<p>This page is written in MD, converted to HTML and styled with CSS.</p>
-<h3>Attribute List</h3>
-<p>Create custom classes by adding <code>{: .classname}</code> after a markdown element.</p>
+<p>This page is written in <abbr title="Markdown">MD</abbr>, converted to <abbr title="Hypertext Markup Language">HTML</abbr> and styled with <abbr title="Cascading Style Sheets">CSS</abbr>.</p>
+<h2 id="attribute-list">Attribute List</h2>
+<p>Add custom classes by adding <code>{: .classname}</code> <em>after</em> a markdown element.</p>
 <p>For example,</p>
 <div class="codehilite"><pre><span></span><code>This is a highlighted paragraph
 {: .highlight}
 </code></pre></div>
 
-<p>To produce (with some css styling),</p>
-<p>This is a hightlighted paragraph
-{: .highlight}</p>
-<h3>Definition Lists</h3>
+<p>will produce (with some css styling),</p>
+<p class="highlight">This is a highlighted paragraph</p>
+<h2 id="definition-lists">Definition Lists</h2>
 <p>Create definition lists with,</p>
 <div class="codehilite"><pre><span></span><code>Mercury
 : The smallest planet in the solar system.
@@ -177,27 +231,53 @@ Earth
 </code></pre></div>
 
 <p>To produce,</p>
-<p>Mercury
-: The smallest planet in the solar system.</p>
-<p>Venus
-: The second smallest planet in the solar system.</p>
-<p>Earth
-: The third planet from the sun.</p>
-<p>Mars
-: The fourth planet from the sun.
-: The red planet.
-: Where the martians are from.</p>
-<h3>Admonition</h3>
-<p>!!! warning
-    This is a warning message.<br />
-    This is a warning message.<br />
-    This is a warning message.  </p>
-<p>!!! danger
-    This is a danger message.</p>
-<p>!!! info
-    This is information message.</p>
-<p>!!! success
-    This is a success message.</p>
+<dl>
+<dt>Mercury</dt>
+<dd>The smallest planet in the solar system.</dd>
+<dt>Venus</dt>
+<dd>The second smallest planet in the solar system.</dd>
+<dt>Earth</dt>
+<dd>The third planet from the sun.</dd>
+<dt>Mars</dt>
+<dd>The fourth planet from the sun.</dd>
+<dd>Where the martians are from.</dd>
+<dd>The red planet.</dd>
+</dl>
+<h2 id="admonition">Admonition</h2>
+<p>Create alerts with,</p>
+<div class="codehilite"><pre><span></span><code>!!! warning
+    This is a warning message.  
+    This is a warning message.  
+    This is a warning message.  
+
+!!! danger
+    This is a danger message.
+
+!!! info
+    This is information message.
+
+!!! success
+    This is a success message.
+</code></pre></div>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a warning message.<br />
+This is a warning message.<br />
+This is a warning message.  </p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This is a danger message.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This is information message.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>This is a success message.</p>
+</div>
 </div>
 
 

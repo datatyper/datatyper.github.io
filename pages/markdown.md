@@ -14,40 +14,51 @@ cover: markdown.png
 #### #### This is Heading 4
 ##### ##### This is Heading 5
 
-A horizontal rule is three or more dashes, asterisks, or underscores (e.g. \-\-\-, \*\*\*, \_\_\_).  
+A horizontal rule is three or more dashes, asterisks, or underscores (e.g. `---` or `***` or `___`).  
 
 ---
 
-```python
+<!-- ```python
 # This is a code block
 for i in range(10):
     print(i)
-```
+``` -->
+<!-- # Emojis
+:smile: :heart: :thumbsup: -->
 
+
+# Text Styling 
+
+Get bold or italic text using `*` or `_`
 
 This is a regular paragraph.  
-This is \**italic*\* text.  
-This is \*\***bold**\*\* text.  
-This is \*\*\****bold and italic***\*\*\* text.  
-
-"This has quotation marks" -- "and".  
-It's got an apostrophe - it works
-Ellipsis...
-
-This is ~~strikethrough~~ text.  
-This is some ^^superscript^^ text.  
-This is some ~~~subscript~~~ text.
+This is \**italic*\*  
+This is \*\***bold**\*\*  
+This is \*\*\****bold and italic***\*\*\*  
+This is \~\~~~strikethrough~~\~\~  
+This is inline \``code`\`  
 
 Syntax      | Description
 ----------- | -----------  
-`\*\*`      | Bold
-`\_`        | Italic
-`\*\*\*`    | Bold + Italic
-`\~\~`      | Strikethrough
-`\^\^`      | Superscript
-`\~\~\~`    | Subscript
+`**` or `__`      | Bold
+`_`        | Italic
+`***`    | Bold + Italic
+`~~`      | Strikethrough
 
-An unordered list with a dash or asterisk:  
+# Lists
+
+## Unordered List
+
+Create an unordered list with a dash `-` or asterisk `*`:  
+
+```
+- List item 1  
+- List item 2  
+- List item 3
+    - List item 3a
+    - List item 3b
+- List item 4
+```
 
 - List item 1  
 - List item 2  
@@ -56,70 +67,98 @@ An unordered list with a dash or asterisk:
     - List item 3b
 - List item 4
 
-An ordered list with any number and a period (e.g. `1.`): 
+## Ordered List
 
-1. List item 1
-1. List item 2
-1. List item 3  
-1. a List item 3.1  
-    1. b List item 3.2
-2. List item 4
+Create an ordered list with any number and a period (e.g. `1.`): 
+
+```
+1. List item
+1. List item
+1. List item
+    1. List item
+    1. List item
+1. List item
+```
+
+1. List item
+1. List item
+1. List item  
+    1. List item
+    1. List item
+1. List item
+
+# Blockquotes
 
 A block quote with a `>`
-> \> This is a block quote.  
-> \> This is the same block quote.
 
-Inline code with backticks, e.g. `E = mc^2`.
+```
+> This is a block quote.  
+> This is the same block quote.
+```
+
+> This is a block quote.  
+> This is the same block quote.
+
+# Code
+
+Create inline code with backticks, e.g. `E = mc^2`.
 
 A code block uses three backticks:
 
-```powershell
-This is a code block.
+```python
+    for i in range(10):
+        print('Hello, World!')
 ```
 
+# Links
 
-This is a link to \[Wikipedia\](https://en.wikipedia.org/wiki/Markdown).  
-This is a link to [Wikipedia](https://en.wikipedia.org/wiki/Markdown).
+## Hyperlinks
+
+This is a link to `[Wikipedia](https://en.wikipedia.org/wiki/Markdown)`  
+This is a link to [Wikipedia](https://en.wikipedia.org/wiki/Markdown)  
+
+## Images
 
 This is an image,  
+`![Solar System](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png)`
 
+This is an image,  
 ![Solar System](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png)
 
 
-## Markdown Extra {#markdown-extra}
+# Markdown Extra {#markdown-extra}
 
-### Abbreviations  
+It is possible to get additional markdown support with the Markdown Extra extension. You can find a list of the available features [here](https://python-markdown.github.io/extensions/).
+
+## Abbreviations  
 Declare some abbreviations (which are also useful for tooltip definitions) and then use them in your text,
 
 ```markdown
-*[HTML]: Hypertext Markup Language
 *[MD]: Markdown
+*[HTML]: Hypertext Markup Language
 *[CSS]: Cascading Style Sheets
-
-This page is written in MD, converted to HTML and styled with CSS.
 ```
 
-*[HTML]: Hypertext Markup Language
 *[MD]: Markdown
+*[HTML]: Hypertext Markup Language
 *[CSS]: Cascading Style Sheets
 
 This page is written in MD, converted to HTML and styled with CSS.
 
-### Attribute List
-Create custom classes by adding `{: .classname}` after a markdown element.
+## Attribute List
+Add custom classes by adding `{: .classname}` _after_ a markdown element.
 
 For example,
 ```md
 This is a highlighted paragraph
 {: .highlight}
 ```
+will produce (with some css styling),
 
-To produce (with some css styling),
-
-This is a hightlighted paragraph
+This is a highlighted paragraph
 {: .highlight}
 
-### Definition Lists
+## Definition Lists
 Create definition lists with,
 
 ```md
@@ -148,12 +187,27 @@ Earth
 
 Mars
 : The fourth planet from the sun.
-: The red planet.
 : Where the martians are from.
+: The red planet.
 
-### Admonition
+## Admonition
 
+Create alerts with,
+```md
+!!! warning
+    This is a warning message.  
+    This is a warning message.  
+    This is a warning message.  
 
+!!! danger
+    This is a danger message.
+
+!!! info
+    This is information message.
+
+!!! success
+    This is a success message.
+```
 
 !!! warning
     This is a warning message.  

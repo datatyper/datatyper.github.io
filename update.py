@@ -43,11 +43,17 @@ def update():
         
         print(data['title'], 'published...')
 
-        # Convert the body to HTML
-        # Add the html to the data dictionary
-        data['content'] = markdown(body, extensions=['tables', 'codehilite', 'fenced_code'])
+
+        # The list of extensions are available here https://python-markdown.github.io/extensions/
+        extensions = ['codehilite', 'toc', 'extra', 'admonition'] 
+        # Use `pip install pymdown-extensions` for extras - https://facelessuser.github.io/pymdown-extensions/
+        extensions += ['pymdownx.tilde', 'pymdownx.emoji']
+        # Convert the body to HTML and add to data dictionary
+        data['content'] = markdown(body, extensions=extensions)
         # Add the path to blog
         data['url'] = os.path.join('blog', page.replace('.md', '.html'))
+
+        # Set defaults
         data.setdefault('category', 'miscellaneous')
         data.setdefault('author', 'Philip')
         data.setdefault('date', datetime.today())
@@ -67,12 +73,12 @@ def update():
         blog_template = env.get_template('page.html')
         blog = blog_template.render(data)
 
-        with open(data['url'], "w") as f:
+        with open(data['url'], "w", encoding='utf-8') as f:
             f.write(blog)
 
     index_template = env.get_template('index.html')
     index = index_template.render({'items': items})
-    with open("index.html", "w") as f:
+    with open("index.html", "w", encoding='utf-8') as f:
         f.write(index)
 
 

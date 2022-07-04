@@ -162,28 +162,6 @@ tr:last-of-type {
   border-bottom: 1px solid #06214C;
 }
 
-code, code * {
-  font-family: monospace;
-}
-
-pre {
-  margin: 0;
-  padding: 0;
-}
-
-.codehilite {
-  margin: 1rem 2.5rem;
-  padding: 0.6rem 1rem;
-  overflow-x: auto;
-}
-
-p code {
-  background: #F5F9FC;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 0.1rem 0.5rem;
-}
-
 /*-----------------------
         ALERTS
 ------------------------- */
@@ -405,6 +383,28 @@ header {
   font-weight: normal;
 }
 
+code, code * {
+  font-family: monospace;
+}
+
+pre {
+  margin: 5px 0;
+  padding: 0;
+}
+
+.codehilite {
+  margin: 1rem 2.5rem;
+  padding: 0.6rem 1rem;
+  overflow-x: auto;
+}
+
+:not(pre) > code {
+  background: #F5F9FC;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
 * {
   box-sizing: border-box;
   font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -469,7 +469,7 @@ blockquote {
   padding: 0.6rem 1rem;
   overflow-x: auto;
   background: #F5F9FC;
-  border-left: 10px solid #06214C;
+  border-left: 10px solid #33C8C3;
   quotes: "“" "”" "‘" "’";
 }
 blockquote p {
@@ -498,4 +498,12 @@ dl dt {
 
 abbr {
   text-decoration-thickness: 2px;
+}
+
+.highlight {
+  margin: 1rem 2.5rem;
+  padding: 0.6rem 1rem;
+  overflow-x: auto;
+  background: #33C8C3;
+  color: white;
 }
