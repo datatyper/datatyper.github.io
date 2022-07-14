@@ -17,13 +17,15 @@ def update():
     4. Output to html as blog page and to the index page
     '''
 
-    items = []
 
-    pages = os.listdir('pages')
+
+    items = []
+    pages = [page for page in os.listdir('pages') if page.endswith('.md')]
     for page in pages:
 
+        print(f"Processing{page:.>30}", end = '')
         # Read in markdown
-        with open(os.path.join('pages', page), "r") as f:
+        with open(os.path.join('pages', page), "r", encoding='utf-8') as f:
             md = f.read()
 
         # Split the metadata and body
@@ -39,9 +41,9 @@ def update():
         
         # Only convert published datas, else ignore.
         if data.get('status') != 'published':
+            print(f"{'Not published':.>30}")
             continue
         
-        print(data['title'], 'published...')
 
 
         # The list of extensions are available here https://python-markdown.github.io/extensions/
@@ -51,7 +53,10 @@ def update():
         # Convert the body to HTML and add to data dictionary
         data['content'] = markdown(body, extensions=extensions)
         # Add the path to blog
-        data['url'] = os.path.join('blog', page.replace('.md', '.html'))
+        if 'url' in data:
+            data['url'] = os.path.join('blog', data['url'] + '.html')
+        else:
+            data['url'] = os.path.join('blog', page.replace('.md', '.html'))
 
         # Set defaults
         data.setdefault('category', 'miscellaneous')
@@ -75,6 +80,7 @@ def update():
 
         with open(data['url'], "w", encoding='utf-8') as f:
             f.write(blog)
+            print(f"{'Published':.>30}")
 
     index_template = env.get_template('index.html')
     index = index_template.render({'items': items})

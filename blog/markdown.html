@@ -73,6 +73,7 @@
 </ul>
 </li>
 <li><a href="#markdown-extra">Markdown Extra</a><ul>
+<li><a href="#tables">Tables</a></li>
 <li><a href="#abbreviations">Abbreviations</a></li>
 <li><a href="#attribute-list">Attribute List</a></li>
 <li><a href="#definition-lists">Definition Lists</a></li>
@@ -98,35 +99,40 @@ for i in range(10):
 
 <h1 id="text-styling">Text Styling</h1>
 <p>Get bold or italic text using <code>*</code> or <code>_</code></p>
-<p>This is a regular paragraph.<br />
-This is *<em>italic</em>*<br />
-This is **<strong>bold</strong>**<br />
-This is ***<strong><em>bold and italic</em></strong>***<br />
-This is ~~<del>strikethrough</del>~~<br />
-This is inline `<code>code</code>`  </p>
+<p>This is *<em>italic</em>*. This is **<strong>bold</strong>**. This is ***<strong><em>bold and italic</em></strong>***.  </p>
 <table>
 <thead>
 <tr>
-<th>Syntax</th>
 <th>Description</th>
+<th>Syntax</th>
+<th>Effect</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>**</code> or <code>__</code></td>
-<td>Bold</td>
-</tr>
-<tr>
-<td><code>_</code></td>
 <td>Italic</td>
+<td><code>*datatype*</code> or <code>_datatype_</code></td>
+<td><em>datatype</em></td>
 </tr>
 <tr>
-<td><code>***</code></td>
-<td>Bold + Italic</td>
+<td>Bold</td>
+<td><code>**datatype**</code> or <code>__datatype__</code></td>
+<td><strong>datatype</strong></td>
 </tr>
 <tr>
-<td><code>~~</code></td>
+<td>Bold Italic</td>
+<td><code>***datatype***</code> or <code>___datatype___</code></td>
+<td><strong><em>datatype</em></strong></td>
+</tr>
+<tr>
+<td>Inline code</td>
+<td><code>`dataatype`</code></td>
+<td><code>datatype</code></td>
+</tr>
+<tr>
 <td>Strikethrough</td>
+<td><code>~~datatype~~</code></td>
+<td><del>datatype</del></td>
 </tr>
 </tbody>
 </table>
@@ -182,12 +188,19 @@ This is inline `<code>code</code>`  </p>
 This is the same block quote.</p>
 </blockquote>
 <h1 id="code">Code</h1>
-<p>Create inline code with backticks, e.g. <code>E = mc^2</code>.</p>
-<p>A code block uses three backticks:</p>
-<div class="codehilite"><pre><span></span><code>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+<p>Create inline code by surrounding text with single backticks <code>`</code>, e.g. <code>`E = mc^2`</code>.</p>
+<p>A code block uses three backticks <code>```</code>,:</p>
+<div class="codehilite"><pre><span></span><code> ```python
+for i in range(10):
+    print(&#39;Datatype&#39;)
+ ``` 
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Datatype&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Note the "python" after the first three backticks to get the code block to be interpreted as Python.</p>
 <h1 id="links">Links</h1>
 <h2 id="hyperlinks">Hyperlinks</h2>
 <p>This is a link to <code>[Wikipedia](https://en.wikipedia.org/wiki/Markdown)</code><br />
@@ -199,6 +212,64 @@ This is a link to <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a>
 <img alt="Solar System" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png" /></p>
 <h1 id="markdown-extra">Markdown Extra</h1>
 <p>It is possible to get additional markdown support with the Markdown Extra extension. You can find a list of the available features <a href="https://python-markdown.github.io/extensions/">here</a>.</p>
+<h2 id="tables">Tables</h2>
+<p>Tables are created with a pipe <code>|</code>,</p>
+<div class="codehilite"><pre><span></span><code>A | B | C
+---|---|---
+1 | 2 | 3
+4 | 5 | 6
+</code></pre></div>
+
+<p>To get,</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>You can align the columns with a colon <code>:</code></p>
+<div class="codehilite"><pre><span></span><code>left | center | right
+:---|:---:|:---
+cell | cell | cell
+cell | cell | cell
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">left</th>
+<th align="center">center</th>
+<th align="left">right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cell</td>
+<td align="center">cell</td>
+<td align="left">cell</td>
+</tr>
+<tr>
+<td align="left">cell</td>
+<td align="center">cell</td>
+<td align="left">cell</td>
+</tr>
+</tbody>
+</table>
 <h2 id="abbreviations">Abbreviations</h2>
 <p>Declare some abbreviations (which are also useful for tooltip definitions) and then use them in your text,</p>
 <div class="codehilite"><pre><span></span><code>*[MD]: Markdown

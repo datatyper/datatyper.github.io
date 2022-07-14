@@ -63,17 +63,14 @@ nav a:hover::before {
   html, body {
     overflow-x: hidden;
   }
-
   .logo a {
     width: 100%;
     text-align: center;
     margin-left: 40px;
   }
-
   .burger {
     display: block;
   }
-
   .nav-links {
     flex-direction: column;
     position: fixed;
@@ -87,24 +84,20 @@ nav a:hover::before {
     transition: all 0.3s ease;
     z-index: 1;
   }
-
   /* Nav animation - add classes using javascript */
   .nav-active {
     transform: translateX(0);
     opacity: 1;
   }
-
   .burger-active .line1 {
     transform: rotate(45deg) translate(6px, 6px);
   }
-
   .burger-active .line2 {
     transform: scaleX(0);
     opacity: 0;
     /* transform: rotate(90deg); */
     /* opacity: 0; */
   }
-
   .burger-active .line3 {
     transform: rotate(-45deg) translate(6px, -5px);
   }
@@ -329,8 +322,7 @@ tr:last-of-type {
 
 .meter {
   box-sizing: content-box;
-  height: 10px;
-  /* Can be anything */
+  height: 10px; /* Can be anything */
   border-radius: 10px;
   position: relative;
   margin: 0 5%;

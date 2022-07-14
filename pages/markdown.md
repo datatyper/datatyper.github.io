@@ -31,19 +31,15 @@ for i in range(10):
 
 Get bold or italic text using `*` or `_`
 
-This is a regular paragraph.  
-This is \**italic*\*  
-This is \*\***bold**\*\*  
-This is \*\*\****bold and italic***\*\*\*  
-This is \~\~~~strikethrough~~\~\~  
-This is inline \``code`\`  
+This is \**italic*\*. This is \*\***bold**\*\*. This is \*\*\****bold and italic***\*\*\*.  
 
-Syntax      | Description
------------ | -----------  
-`**` or `__`      | Bold
-`_`        | Italic
-`***`    | Bold + Italic
-`~~`      | Strikethrough
+Description    | Syntax      | Effect
+-------------- | ----------- | -----------  
+Italic         | `*datatype*` or `_datatype_`    | *datatype*
+Bold           | `**datatype**` or `__datatype__`| **datatype**
+Bold Italic    | `***datatype***` or `___datatype___`    | ***datatype***
+Inline code    | `` `dataatype` `` | `datatype`
+Strikethrough  | `~~datatype~~`      | ~~datatype~~
 
 # Lists
 
@@ -101,14 +97,23 @@ A block quote with a `>`
 
 # Code
 
-Create inline code with backticks, e.g. `E = mc^2`.
+Create inline code by surrounding text with single backticks `` ` ``, e.g. `` `E = mc^2` ``.
 
-A code block uses three backticks:
+A code block uses three backticks `` ``` ``,:
+
+```md
+ ```python
+for i in range(10):
+    print('Datatype')
+ ``` 
+```
 
 ```python
-    for i in range(10):
-        print('Hello, World!')
+for i in range(10):
+    print('Datatype')
 ```
+
+Note the "python" after the first three backticks to get the code block to be interpreted as Python.
 
 # Links
 
@@ -129,6 +134,39 @@ This is an image,
 # Markdown Extra {#markdown-extra}
 
 It is possible to get additional markdown support with the Markdown Extra extension. You can find a list of the available features [here](https://python-markdown.github.io/extensions/).
+
+## Tables
+
+Tables are created with a pipe `|`,
+
+```md
+A | B | C
+---|---|---
+1 | 2 | 3
+4 | 5 | 6
+```
+
+To get,
+
+a | b | c
+---|---|---
+1 | 2 | 3
+4 | 5 | 6
+
+You can align the columns with a colon `:`
+
+```md
+left | center | right
+:---|:---:|:---
+cell | cell | cell
+cell | cell | cell
+```
+
+left | center | right
+:---|:---:|:---
+cell | cell | cell
+cell | cell | cell
+
 
 ## Abbreviations  
 Declare some abbreviations (which are also useful for tooltip definitions) and then use them in your text,
