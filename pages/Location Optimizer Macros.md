@@ -8,26 +8,31 @@ tags: [alteryx, optimization, spatial]
 summary: Location Optimizer Macros can be used to add or remove suggested locations to a network, based on a criteria set by the user.
 
 
-# Location Optimizer Macros
-## Macros - The Best Thing Since Sliced Bread
+# Location Optimizer Macros (LOM)
+
 There are four types of macros. Though most people can't even remember the name of the elusive fourth kind. We have,
-1. Standard Macros - they simply package up a collection of tools into a single tool.
-2. Batch Macros - they run for each record in the data
-3. Iterative Macros - they run repeatedly until a condition is met
-4. Location Optimizer Macros (LOMs) - they also run for **multiple iterations** to determine the best **suggested locations** to add or remove from a **network** based on a **score**.
 
-(Ask people to put their hands up if they've built each of these kind of macros. Expect a significant drop off for LOMs. But then again, there is some selection bias)
+1. Standard Macros - they package up several tools into a single tool
+2. Batch Macros - they run in a loop for every batch of records in the data
+3. Iterative Macros - they run in a loop repeatedly until a condition is met
+4. Location Optimizer Macros - they also run **multiple iterations** to determine the best **suggested locations** to add or remove from a **network** based on a **score**.
 
-**What is the network**? These are your existing locations.
+The **network** here just refers to your spatial data.  The **multiple iterations** means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The **suggested locations** are additional spatial data points from which you are selecting from. And the **score** is a measure - to be minimized or maximized - that is used to determine the best location(s).
 
-(This is a fancy term for your current spatial data)
+So, for example, if you owned a bike retailer with several stores, and you wanted to open a few new stores, you could use an LOM to determine the best locations. In this scenario, 
 
-**Suggested locations**? Yes, you provide a list of additional locations.
 
-(The macro doesn't pick a point out of thin air. You need to suggest a list of locations from which to choose)
+**What is the network?** These are your existing store locations. (This is a fancy term for your current spatial data)  
+**Suggested locations?** The locations of potential new store locations. (You need to provide some viable options)  
+**Score?** In this case, we will go with the total distance between each of your customers and their nearest store.
 
-**Score**? The value to minimize / maximize to determine which point(s) to add. You can calculate this any way you want to achieve your objective.
+Two other things we need to specify is,  
+1. How many stores we wish to open and, 
+1. That we wish to minimize the score (we want to be close to our customers).
 
+From their Alteryx LOMs take care of running different combinations of the LOMs to find the best solution (the locations with the lowest score).
+
+![Warning]
 (The LOM is very similar to the Optimization Tool. In the Optimization Tool you want to maximize or minimize a score - the result of the objective function. The same thing is true for LOMs, except you are adding points rather than deducing the value of decision variables. I appreciate I might have lost a lot of people with that last bit. I promise this will become more clear with a few examples)
 
 
