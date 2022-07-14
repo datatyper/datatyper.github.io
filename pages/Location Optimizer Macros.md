@@ -1,6 +1,6 @@
 title: Location Optimizer Macros
 subtitle: The Fourth Kind of Macros That You Have Never Used
-status: draft
+status: published
 progress: 10%
 date: 2020-04-07
 category: alteryx
