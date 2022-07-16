@@ -1,34 +1,37 @@
 title: Location Optimizer Macros
-subtitle: The Fourth Kind of Macros That You Have Never Used
+subtitle: The Fourth Type of Macro That You’ve Never Used
+summary: A Location Optimizer Macro can be used to optimize the selection of spatial objects based on criteria set by the user.
 status: published
-progress: 10%
-date: 2020-04-07
+date: 2020-07-16
 category: alteryx
 tags: [alteryx, optimization, spatial]
-summary: Location Optimizer Macros can be used to add or remove suggested locations to a network, based on a criteria set by the user.
 
 
-# Location Optimizer Macros (LOM)
+# Location Optimizer Macros (LOMs)
 
-There are four types of macros. Though most people can't even remember the name of the elusive fourth kind. We have,
+There are four types of macros. Though most people can't even remember the name of the elusive fourth type. We have,
 
-1. Standard Macros - they package up several tools into a single tool
-2. Batch Macros - they run in a loop for every batch of records in the data
-3. Iterative Macros - they run in a loop repeatedly until a condition is met
-4. Location Optimizer Macros - they also run **multiple iterations** to determine the best **suggested locations** to add or remove from a **network** based on a **score**.
+1. Standard Macros - to package up several tools into a single tool
+2. Batch Macros - to run in a loop for every batch of records in the data
+3. Iterative Macros - to run in a loop repeatedly until a condition is met
+4. Location Optimizer Macros
 
-The **network** here just refers to your spatial data.  The **multiple iterations** means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The **suggested locations** are additional spatial data points from which you are selecting from. And the **score** is a measure - to be minimized or maximized - that is used to determine the best location(s).
+The textbook definition of the Location Optimizer Macro is:
+
+> Runs **multiple iterations** to determine the best **suggested locations** to add or remove from a **network** based on a **score**.
+
+The **network** here just refers to your spatial data.  The **multiple iterations** means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The **suggested locations** are additional spatial data points from which you are selecting from. And the **score** is some final measure - to be minimized or maximized - that's used to determine the best location(s).
 
 So, for example, if you owned a bike retailer with several stores, and you wanted to open a few new stores, you could use an LOM to determine the best locations. In this scenario, 
 
 
 **What is the network?** These are your existing store locations. (This is a fancy term for your current spatial data)  
 **Suggested locations?** The locations of potential new store locations. (You need to provide some viable options)  
-**Score?** In this case, we will go with the total distance between each of your customers and their nearest store.
+**Score?** In this case, we will go with the total distance between each of your customers and their *nearest* store.
 
 Two other things we need to specify is,  
 1. How many stores we wish to open and, 
-1. That we wish to minimize the score (we want to be close to our customers).
+1. That we to minimize the score (we want to be close to our customers).
 
 From their Alteryx LOMs take care of running different combinations of the LOMs to find the best solution (the locations with the lowest score).
 

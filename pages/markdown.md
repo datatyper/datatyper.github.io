@@ -18,15 +18,6 @@ A horizontal rule is three or more dashes, asterisks, or underscores (e.g. `---`
 
 ---
 
-<!-- ```python
-# This is a code block
-for i in range(10):
-    print(i)
-``` -->
-<!-- # Emojis
-:smile: :heart: :thumbsup: -->
-
-
 # Text Styling 
 
 Get bold or italic text using `*` or `_`

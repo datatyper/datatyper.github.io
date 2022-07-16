@@ -38,28 +38,32 @@
             <div class="category-tag alteryx">alteryx</div>
         </div>
         <h1>LOCATION OPTIMIZER MACROS</h1>
-        <p><em>Location Optimizer Macros can be used to add or remove suggested locations to a network, based on a criteria set by the user.</em></p>
-        <p><em>Philip <span class="divider">//</span> 2020 April</em></p>
+        <p><em>A Location Optimizer Macro can be used to optimize the selection of spatial objects based on criteria set by the user.</em></p>
+        <p><em>Philip <span class="divider">//</span> 2020 July</em></p>
     </div>
 </header>
 
 <div class="content">
-    <h1 id="location-optimizer-macros-lom">Location Optimizer Macros (LOM)</h1>
-<p>There are four types of macros. Though most people can't even remember the name of the elusive fourth kind. We have,</p>
+    <h1 id="location-optimizer-macros-loms">Location Optimizer Macros (LOMs)</h1>
+<p>There are four types of macros. Though most people can't even remember the name of the elusive fourth type. We have,</p>
 <ol>
-<li>Standard Macros - they package up several tools into a single tool</li>
-<li>Batch Macros - they run in a loop for every batch of records in the data</li>
-<li>Iterative Macros - they run in a loop repeatedly until a condition is met</li>
-<li>Location Optimizer Macros - they also run <strong>multiple iterations</strong> to determine the best <strong>suggested locations</strong> to add or remove from a <strong>network</strong> based on a <strong>score</strong>.</li>
+<li>Standard Macros - to package up several tools into a single tool</li>
+<li>Batch Macros - to run in a loop for every batch of records in the data</li>
+<li>Iterative Macros - to run in a loop repeatedly until a condition is met</li>
+<li>Location Optimizer Macros</li>
 </ol>
-<p>The <strong>network</strong> here just refers to your spatial data.  The <strong>multiple iterations</strong> means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The <strong>suggested locations</strong> are additional spatial data points from which you are selecting from. And the <strong>score</strong> is a measure - to be minimized or maximized - that is used to determine the best location(s).</p>
+<p>The textbook definition of the Location Optimizer Macro is:</p>
+<blockquote>
+<p>Runs <strong>multiple iterations</strong> to determine the best <strong>suggested locations</strong> to add or remove from a <strong>network</strong> based on a <strong>score</strong>.</p>
+</blockquote>
+<p>The <strong>network</strong> here just refers to your spatial data.  The <strong>multiple iterations</strong> means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The <strong>suggested locations</strong> are additional spatial data points from which you are selecting from. And the <strong>score</strong> is some final measure - to be minimized or maximized - that's used to determine the best location(s).</p>
 <p>So, for example, if you owned a bike retailer with several stores, and you wanted to open a few new stores, you could use an LOM to determine the best locations. In this scenario, </p>
 <p><strong>What is the network?</strong> These are your existing store locations. (This is a fancy term for your current spatial data)<br />
 <strong>Suggested locations?</strong> The locations of potential new store locations. (You need to provide some viable options)<br />
-<strong>Score?</strong> In this case, we will go with the total distance between each of your customers and their nearest store.</p>
+<strong>Score?</strong> In this case, we will go with the total distance between each of your customers and their <em>nearest</em> store.</p>
 <p>Two other things we need to specify is,<br />
 1. How many stores we wish to open and, 
-1. That we wish to minimize the score (we want to be close to our customers).</p>
+1. That we to minimize the score (we want to be close to our customers).</p>
 <p>From their Alteryx LOMs take care of running different combinations of the LOMs to find the best solution (the locations with the lowest score).</p>
 <p>![Warning]
 (The LOM is very similar to the Optimization Tool. In the Optimization Tool you want to maximize or minimize a score - the result of the objective function. The same thing is true for LOMs, except you are adding points rather than deducing the value of decision variables. I appreciate I might have lost a lot of people with that last bit. I promise this will become more clear with a few examples)</p>

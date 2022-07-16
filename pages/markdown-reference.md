@@ -1,9 +1,10 @@
 title: A Complete Guide to Markdown
 subtitle: The Lowdown on Markdown
+summary: Your complete guide to the Markdown language. Use it as a reference for your static website or GitHub ReadMe files.
 author: Philip Mannering
-status: published
 date: 2021-11-23
-summary: Your complete guide to the Markdown language. Use it as a reference for your static website.
+status: published
+category: miscellaneous
 tags: [reference, guide]
 
 [TOC]
@@ -11,18 +12,13 @@ tags: [reference, guide]
 # Titles and Subtitles
 
 # # This is Heading 1
-
 ## ## This is Heading 2
-
 ### ### This is Heading 3
-
 #### #### This is Heading 4
-
 ##### ##### This is Heading 5
-
 ###### ###### This is Heading 6
 
-Markdown is the simplest way to create a static website. It is a plain text format that is easy to read and write. Indeed, the page you're reading now was typed up in Markdown. You can then use this [Python-Markdown](https://pypi.org/project/Markdown/) module to convert this to HTML. Or you can use [Flask-FlatPages](https://pypi.org/project/Flask-FlatPages/) to provide a simple static website. This is what I've used to create the webpage you're reading now.
+Markdown is the simplest way to create a static website. It is a plain text format that is easy to read and write. Indeed, the page you're reading now was initially typed up in Markdown. You can then use this [Python-Markdown](https://pypi.org/project/Markdown/) module to convert this to HTML. Then use [Jinja2](https://pypi.org/project/Jinja2/) to insert into an HTML template. Indeed this is what I've used to create the webpage you're reading now.
 
 # Horizontal Rule  
 
@@ -30,30 +26,39 @@ A horizontal rule is three or more dashes, asterisks, or underscores (e.g. `---`
 
 ---
 
-# Font Style
+# Text Styling 
 
-It's possible to write \__italic_\_, \*\***bold**\*\* or \*\*\****italic-bold***\*\*\* text by surrounding the text with backticks asterisks or underscores.
+Get bold or italic text by surrounding text with asterisks `*` or underscores `_`
 
-Some markdown renderers may also support strikethrough text using a couple of tildes: ~~<s>strike-through</s>~~.
+This is \**italic*\*. This is \*\***bold**\*\*. This is \*\*\****bold and italic***\*\*\*. The complete list of styling text inlined in markdown is:
 
-Finally, wrapping text in a single backtick can create inline code: \``code`\`.
+Style          | Syntax      | Result
+-------------- | ----------- | -----------  
+Italic         | `*datatype*` or `_datatype_`    | *datatype*
+Bold           | `**datatype**` or `__datatype__`| **datatype**
+Bold italic    | `***datatype***` or `___datatype___`    | ***datatype***
+Inline code    | `` `dataatype` `` | `datatype`
+Strikethrough  | `~~datatype~~`      | ~~datatype~~
+
 
 # Tables
 
-Tables are much simpler in Markdown than they are in HTML. Simply add a few pipes (`|`) to separate the columns and a row of dashes (`---`) to separate the rows.
-
-Column 1 \| Column 2 \| Column 3  
---------\|---------\|--------  
-Value 1  \|  Value 2 \|  Value 3  
-Value 4  \|  Value 5 \|  Value 6  
+Tables are much simpler in Markdown than they are in HTML. Simply add a few pipes (`|`) to separate the columns and a row of dashes `---` to separate the headers with the values. On this row you can use the `:` character to align the columns.
+ 
+Left  \| Center \| Right  
+:----\|:------:\|------:  
+Value \| Value  \| Value  
+Value \| Value  \| Value  
 {.code}
 
-Becomes,
+Becomes,  
+<!-- Make sure there is a space before the table -->
 
-Column 1 | Column 2 | Column 3
----------|----------|---------
- Value 1 |  Value 2 |  Value 3
- Value 4 |  Value 5 |  Value 6
+Left  | Center | Right  
+:-----|:------:|------:  
+Value | Value  | Value  
+Value | Value  | Value  
+
 
 # Lists
 
@@ -66,7 +71,7 @@ Create an unordered list with a dash (`-`) or asterisk (`*`) at the beginning of
 &nbsp;&nbsp;\- list item  
 &nbsp;&nbsp;&nbsp;&nbsp;\- list item  
 &nbsp;&nbsp;\- list item  
-\- list item
+\- list item  
 {.code}
 
 - list item
@@ -112,24 +117,24 @@ To produce,
 
 # Code
 
-Create inline code with a single backtick, e.g. `E = mc^2`.
+Create inline code by surrounding text with single backticks `` ` ``, e.g. `` `E = mc^2` ``.
 
 A code block uses three backticks or three tildes to delimit the code.
 
 \```python  
 \# print 'hello' 10 times  
 for i in range(10):  
-    print('hello')  
+&nbsp;&nbsp;print('hello')  
 \```
 {.code}  
 
 To produce,
 
-~~~python
+```python
 # print 'hello' 10 times
 for i in range(10):
     print('hello')
-~~~
+```
 
 # Links
 
@@ -146,27 +151,29 @@ This is a link: [Wikipedia](https://en.wikipedia.org/wiki/Markdown).
 
 The markdown syntax for creating images is:
 
-This is an image: !\[Solar System](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png)
+This is an image: !\[](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg)
 {.code}
 
-This is an image: ![Solar System](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Planets2013.svg/390px-Planets2013.svg.png)
+This is an image: ![](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg)
 
 
 # Markdown Extra {#markdown-extra}
 
+It is possible to get additional markdown support with the Markdown Extra extension. You can find a list of the available features [here](https://python-markdown.github.io/extensions/).
+
 ## Abbreviations  
 Declare some abbreviations (which are also useful for tooltip definitions) and then use them in your text,
 
-\*[HTML]: Hypertext Markup Language  
 \*[MD]: Markdown  
+\*[HTML]: Hypertext Markup Language  
 \*[CSS]: Cascading Style Sheets<br>  
 This page is written in MD, converted to HTML and styled with CSS.
 {.code}
 
 To produce,
 
-*[HTML]: Hypertext Markup Language  
 *[MD]: Markdown  
+*[HTML]: Hypertext Markup Language  
 *[CSS]: Cascading Style Sheets  
 
 This page is written in MD, converted to HTML and styled with CSS.
