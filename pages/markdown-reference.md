@@ -4,7 +4,7 @@ summary: Your complete guide to the Markdown language. Use it as a reference for
 author: Philip Mannering
 date: 2021-11-23
 status: published
-category: miscellaneous
+category: misc
 tags: [reference, guide]
 
 [TOC]

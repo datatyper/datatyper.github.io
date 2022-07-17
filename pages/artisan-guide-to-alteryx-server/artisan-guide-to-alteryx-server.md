@@ -28,7 +28,7 @@ In both cases, it's useful to know how certain tools behave on Alteryx Server to
 
 Once you're ready to save a workflow, you can publish to your Alteryx Server by going to `File > Save As > Private Gallery > My Company's Gallery` (this is not to be confused with `File > Save As > Public Gallery > Alteryx Gallery` which is Alteryx' own public Gallery open to the world). You will then be greeted with this dialog box,
 
-![Save Workflow Window](assets/images/posts/save_workflow.png "Save a Workflow")
+![Save Workflow Window](images/save_workflow.png)
 
 In which,
 
@@ -93,7 +93,7 @@ There are two scenarios to consider when publishing a workflow that uses the Run
 1. The workflow creates the output batch script (pictured below).  
 1. The workflow runs an existing batch script.  
 
-![The Run Command Tool configuration.](assets/images/posts/run_command_config.png "Run Command Tool Configuration")
+![The Run Command Tool configuration.](images/run_command_config.png)
 
 In scenario 1, where you create batch script at run time, you can choose whether or not to package _cmd.bat_. Although, if this changes dynamically then you'll want to have this unchecked in Manage Workflow Assets.  
 In scenario 2, where you are running a pre-existing batch script, then you much package the batch script with the workflow to avoid a "system cannot find the file specified" error.
