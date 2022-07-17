@@ -95,6 +95,7 @@ blockquote {
 
 img {
     @include pad-and-space();
+    max-width: 100%;
     display: block;
     margin: 0 auto;
     // padding: 0;

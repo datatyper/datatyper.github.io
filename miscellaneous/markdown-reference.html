@@ -47,7 +47,7 @@
     <div class="toc">
 <ul>
 <li><a href="#titles-and-subtitles">Titles and Subtitles</a></li>
-<li><a href="#this-is-heading-1"># This is Heading 1</a><ul>
+<li><a href="#this-is-heading-1">This is Heading 1</a><ul>
 <li><a href="#this-is-heading-2">## This is Heading 2</a><ul>
 <li><a href="#this-is-heading-3">### This is Heading 3</a><ul>
 <li><a href="#this-is-heading-4">#### This is Heading 4</a><ul>
@@ -88,7 +88,9 @@
 </ul>
 </div>
 <h1 id="titles-and-subtitles">Titles and Subtitles</h1>
-<h1 id="this-is-heading-1"># This is Heading 1</h1>
+<!-- omit in toc -->
+<h1 id="this-is-heading-1">This is Heading 1<!-- omit in toc --></h1>
+<!-- omit in toc -->
 <h2 id="this-is-heading-2">## This is Heading 2</h2>
 <h3 id="this-is-heading-3">### This is Heading 3</h3>
 <h4 id="this-is-heading-4">#### This is Heading 4</h4>
@@ -138,13 +140,12 @@
 </tbody>
 </table>
 <h1 id="tables">Tables</h1>
-<p>Tables are much simpler in Markdown than they are in <abbr title="Hypertext Markup Language">HTML</abbr>. Simply add a few pipes (<code>|</code>) to separate the columns and a row of dashes <code>---</code> to separate the headers with the values. On this row you can use the <code>:</code> character to align the columns.</p>
-<p class="code">Here is my table,<br />
-Left  | Center | Right<br />
+<p>Tables are much simpler in Markdown than they are in <abbr title="Hypertext Markup Language">HTML</abbr>. Simply add a few pipes <code>|</code> to separate the columns and a row of dashes <code>---</code> to separate the headers with the values. On this row you can use the <code>:</code> character to align the columns.</p>
+<p class="code">Left  | Center | Right<br />
 :----|:------:|------:<br />
 Value | Value  | Value<br />
 Value | Value  | Value<br /></p>
-<p>Here is my table,  </p>
+<p>Becomes,  </p>
 <!-- Make sure there is a space before the table -->
 
 <table>
@@ -170,7 +171,7 @@ Value | Value  | Value<br /></p>
 </table>
 <h1 id="lists">Lists</h1>
 <h2 id="unordered-lists">Unordered Lists</h2>
-<p>Create an unordered list with a dash (<code>-</code>) or asterisk (<code>*</code>) at the beginning of each line.  </p>
+<p>Create an unordered list with a dash <code>-</code> or asterisk <code>*</code> at the beginning of each line.  </p>
 <p class="code">- list item<br />
 - list item<br />
 &nbsp;&nbsp;- list item<br />
@@ -239,8 +240,8 @@ for i in range(10):<br />
 <p>This is a link: <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia</a>.</p>
 <h1 id="images">Images</h1>
 <p>The markdown syntax for creating images is:</p>
-<p class="code">This is an image: ![](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg)</p>
-<p>This is an image: <img alt="" src="https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg" /></p>
+<p class="code">This is an image: ![](/images/blogs/solar_system.png)</p>
+<p>This is an image: <img alt="" src="/images/blogs/solar_system.png" /></p>
 <h1 id="markdown-extra">Markdown Extra</h1>
 <p>It is possible to get additional markdown support with the Markdown Extra extension. You can find a list of the available features <a href="https://python-markdown.github.io/extensions/">here</a>.</p>
 <h2 id="abbreviations">Abbreviations</h2>
@@ -255,9 +256,9 @@ This page is written in <abbr title="Markdown">MD</abbr>, converted to <abbr tit
 <p>Create custom classes by adding <code>{: .classname}</code> after a markdown element.</p>
 <p>For example,</p>
 <p class="code">This is a highlighted paragraph<br />
-{.inverse}</p>
+{.highlight}</p>
 <p>To produce (with <abbr title="Cascading Style Sheets">CSS</abbr> styling),</p>
-<p class="inverse">This is a hightlighted paragraph</p>
+<p class="highlight">This is a hightlighted paragraph</p>
 <h2 id="definition-lists">Definition Lists</h2>
 <p>Create definition lists with,</p>
 <p class="code">Mercury <br>: The smallest planet in the solar system.<br><br />
@@ -310,6 +311,20 @@ This is a warning message.  </p>
 <p>This is a success message.</p>
 </div>
 <h2 id="using-html">Using <abbr title="Hypertext Markup Language">HTML</abbr></h2>
+<p>You can also just use plain html in your markdown text. This html (with some <abbr title="Cascading Style Sheets">CSS</abbr>) can be used to create columns,</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span> <span class="na">markdown=</span><span class="s">1</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col&quot;</span> <span class="na">markdown=</span><span class="s">1</span><span class="nt">&gt;</span>
+# Left
+The paragraph on the right
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col&quot;</span> <span class="na">markdown=</span><span class="s">1</span><span class="nt">&gt;</span>
+# Right
+The paragraph on the right
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>To get,</p>
 <div class="row">
 <div class="col">
 <h1 id="left">Left</h1>

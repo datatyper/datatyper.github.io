@@ -1,5 +1,6 @@
 title: Creating a Flask App  
 subtitle: Blogging the Easy Way
+status: draft
 progress: 20%
 author: Philip Mannering  
 date: 2021-11-22  

@@ -1,4 +1,5 @@
 title: The Artisan's Guide to Alteryx Server
+summary: A reference guide for Alteryx Designer users looking to find out how best to develop and publish workflows to Alteryx Gallery
 keywords: alteryx, server, gallery
 category: alteryx
 url: alteryx-server-guide
@@ -7,7 +8,6 @@ tags: reference
 date: 2021-07-31
 modified: 2021-08-01
 author: philip
-summary: A reference guide for Alteryx Designer users looking to find out how best to develop and publish workflows to Alteryx Gallery
 
 
 

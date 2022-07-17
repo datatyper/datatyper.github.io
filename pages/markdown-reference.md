@@ -11,7 +11,9 @@ tags: [reference, guide]
 
 # Titles and Subtitles
 
-# # This is Heading 1
+<!-- omit in toc -->
+# This is Heading 1<!-- omit in toc -->
+<!-- omit in toc -->
 ## ## This is Heading 2
 ### ### This is Heading 3
 #### #### This is Heading 4
@@ -43,7 +45,7 @@ Strikethrough  | `~~datatype~~`      | ~~datatype~~
 
 # Tables
 
-Tables are much simpler in Markdown than they are in HTML. Simply add a few pipes (`|`) to separate the columns and a row of dashes `---` to separate the headers with the values. On this row you can use the `:` character to align the columns.
+Tables are much simpler in Markdown than they are in HTML. Simply add a few pipes `|` to separate the columns and a row of dashes `---` to separate the headers with the values. On this row you can use the `:` character to align the columns.
  
 Left  \| Center \| Right  
 :----\|:------:\|------:  
@@ -64,7 +66,7 @@ Value | Value  | Value
 
 ## Unordered Lists
 
-Create an unordered list with a dash (`-`) or asterisk (`*`) at the beginning of each line.  
+Create an unordered list with a dash `-`, plus `+` or asterisk `*` at the beginning of each line.  
 
 \- list item  
 \- list item  
@@ -151,10 +153,10 @@ This is a link: [Wikipedia](https://en.wikipedia.org/wiki/Markdown).
 
 The markdown syntax for creating images is:
 
-This is an image: !\[](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg)
+This is an image: !\[](images/solar_system.png)
 {.code}
 
-This is an image: ![](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg)
+This is an image: ![](images/solar_system.png)
 
 
 # Markdown Extra {#markdown-extra}
@@ -184,13 +186,13 @@ Create custom classes by adding `{: .classname}` after a markdown element.
 For example,
 
 This is a highlighted paragraph  
-\{.inverse}
+\{.highlight}
 {.code}
 
 To produce (with CSS styling),
 
 This is a hightlighted paragraph
-{: .inverse}
+{: .highlight}
 
 ## Definition Lists
 Create definition lists with,
@@ -252,6 +254,22 @@ Create some admonitions / alerts with:
     This is a success message.
 
 ## Using HTML
+
+You can also just use plain html in your markdown text. This html (with some CSS) can be used to create columns,
+
+```
+<div class="row" markdown=1>
+<div class="col" markdown=1>
+# Left
+The paragraph on the right
+</div>
+<div class="col" markdown=1>
+# Right
+The paragraph on the right
+</div>
+</div>
+```
+To get,
 
 <div class="row" markdown=1>
 <div class="col" markdown=1>
