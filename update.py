@@ -19,7 +19,7 @@ def move_images():
 
     # Copy images to the 'images/blog' directory
     for image in images:
-        dest = os.path.join('images', 'blogs', os.path.basename(image))
+        dest = os.path.join('images', 'blog', os.path.basename(image))
         shutil.copy(image, dest)
 
 
@@ -34,18 +34,19 @@ def move_markdown():
     1. Read in the markdown file
     2. Parse out the content and metadata
     2. Create a dictionary containing content and metadata
-    4. Output to html as blog page and to the index page
+    4. Output to html to blog and the index page
     '''
 
     # Get all markdown files in the 'pages' directory
     pages = glob.glob('pages/**/*.md', recursive=True)
     print(f'Found {len(pages)} markdown files')
 
-
     items = []
     for page in pages:
 
-        print(f"Processing{os.path.basename(page):.>40}", end = '')
+        basename = os.path.basename(page)
+
+        print(f"Processing{basename:.>40}", end = '')
         # Read in markdown
         with open(page, "r", encoding='utf-8') as f:
             md = f.read()
@@ -54,24 +55,17 @@ def move_markdown():
         meta, body = md.strip().split('\n\n', maxsplit=1)
 
         # Replace image paths
-        body = body.replace('images/', '/images/blogs/')
-
-
+        body = body.replace('images/', '/images/blog/')
 
         # Create a dictionary of metadata
-        if ':' not in meta:
-            raise ValueError(
-                'Metadata must be in "key:value" format. Got "{}"'.format(meta))
-
         data = {item.split(':')[0].strip(): item.split(':')[1].strip()
                 for item in meta.split('\n')}
         
-        # Only convert published datas, else ignore.
+        # Only convert published files
         if data.get('status') != 'published':
             print(f"{'Not published':.>40}")
             continue
         
-
 
         # The list of extensions are available here https://python-markdown.github.io/extensions/
         extensions = ['codehilite', 'toc', 'extra', 'admonition'] 
@@ -80,18 +74,17 @@ def move_markdown():
         # Convert the body to HTML and add to data dictionary
         data['content'] = markdown(body, extensions=extensions)
 
-
-        # Add the path to blog
-        folder = data.get('category', 'blog')
-        if 'url' in data:
-            data['url'] = os.path.join(folder, data['url'] + '.html')
-        else:
-            data['url'] = os.path.join(folder, os.path.basename(page).replace('.md', '.html'))
-
         # Set defaults
-        data.setdefault('category', 'miscellaneous')
+        data.setdefault('category', 'misc')
         data.setdefault('author', 'Philip')
         data.setdefault('date', datetime.today())
+        data.setdefault('slug', basename.split('.')[0])
+
+        # Add the path to blog
+        folder = os.path.join('blog', data['category'])
+        data['url'] = os.path.join(folder, data['slug'] + '.html')
+
+
         # Convert date to date type object
         data['date'] = datetime.strptime(data['date'], '%Y-%m-%d')
 

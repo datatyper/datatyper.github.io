@@ -2,7 +2,7 @@ title: The Artisan's Guide to Alteryx Server
 summary: A reference guide for Alteryx Designer users looking to find out how best to develop and publish workflows to Alteryx Gallery
 keywords: alteryx, server, gallery
 category: alteryx
-url: alteryx-server-guide
+slug: alteryx-server-guide
 status: published
 tags: reference
 date: 2021-07-31
@@ -14,7 +14,7 @@ author: philip
 [TOC]
 
 
-This is an Artisan's (the Alteryx term for somebody who can publish workflows) guide to Alteryx Server. In particular, how to create workflows that run as expected on Alteryx Server.
+This is an Artisan's (somebody with permission to publish workflows) guide to Alteryx Server. In particular, how to create workflows that run as expected on Alteryx Server.
 
 There are two primary reasons why you might want to use Alteryx Server,
 
@@ -26,9 +26,9 @@ In both cases, it's useful to know how certain tools behave on Alteryx Server to
 
 # Publishing a Workflow 
 
-Once you're ready to save a workflow, you can publish to your Alteryx Server by going to `File > Save As > Private Gallery > My Company's Gallery` (this is not to be confused with `File > Save As > Public Gallery > Alteryx Gallery` which is Alteryx' own public Gallery open to the world). You will then be greeted with this dialog box,
+Once you're ready to save a workflow, you can publish to your Alteryx Server by going to `File > Save As > Private Gallery > My Company's Gallery` (this is not to be confused with `File > Save As > Public Gallery > Alteryx Gallery` which is Alteryx's own public Gallery open to the world). You will then be greeted with this dialog box,
 
-![Save Workflow Window](images/save_workflow.png)
+![Save Workflow Window](images/alteryx-server-guide - save_workflow.png)
 
 In which,
 
@@ -49,7 +49,7 @@ Things to be aware of:
 - Every time you "Save As" to Gallery, you are creating duplicate workflows with the same name.  
 
 
-# Tool Behavior
+# Tool Behavior on Server
 Unfortunately, not everything works on Server as you'd expect. I've done a bit of testing here so you don't have to.
 
 
@@ -93,7 +93,7 @@ There are two scenarios to consider when publishing a workflow that uses the Run
 1. The workflow creates the output batch script (pictured below).  
 1. The workflow runs an existing batch script.  
 
-![The Run Command Tool configuration.](images/run_command_config.png)
+![The Run Command Tool configuration.](images/alteryx-server-guide - run_command_config.png)
 
 In scenario 1, where you create batch script at run time, you can choose whether or not to package _cmd.bat_. Although, if this changes dynamically then you'll want to have this unchecked in Manage Workflow Assets.  
 In scenario 2, where you are running a pre-existing batch script, then you much package the batch script with the workflow to avoid a "system cannot find the file specified" error.
