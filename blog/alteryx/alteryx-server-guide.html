@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
+    <title>Datatype - blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <script src="/js/main.js" async defer></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+<nav>
+    <div class="logo">
+        <a href="/index.html">Datatype</a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/index.html">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Projects</a></li>
+    </ul>
+    <div class="burger" onclick="toggleNav()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>
+    
+<header
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/covers/blog.jpg')">
+    <div class="header-info">
+        <div class="category-tags">
+            <div class="category-tag alteryx">alteryx</div>
+        </div>
+        <h1>THE ARTISAN&#39;S GUIDE TO ALTERYX SERVER</h1>
+        <p><em>A reference guide for Alteryx Designer users looking to find out how best to develop and publish workflows to Alteryx Gallery</em></p>
+        <p><em>Philip <span class="divider">//</span> 2021 July</em></p>
+    </div>
+</header>
+
+<div class="content">
+    <div class="toc">
+<ul>
+<li><a href="#publishing-a-workflow">Publishing a Workflow</a></li>
+<li><a href="#tool-behavior-on-server">Tool Behavior on Server</a><ul>
+<li><a href="#inputs">Inputs</a></li>
+<li><a href="#the-python-tool">The Python Tool</a></li>
+<li><a href="#the-run-command-tool">The Run Command Tool</a></li>
+<li><a href="#outputs">Outputs</a></li>
+</ul>
+</li>
+<li><a href="#analytic-apps">Analytic Apps</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+<p>This is an Artisan's (somebody with permission to publish workflows) guide to Alteryx Server. In particular, how to create workflows that run as expected on Alteryx Server.</p>
+<p>There are two primary reasons why you might want to use Alteryx Server,</p>
+<ol>
+<li>You want to be able to schedule a workflow to run automatically  </li>
+<li>You want other people (who don't have an Alteryx License) to be able to run a workflow  </li>
+</ol>
+<p>In both cases, it's useful to know how certain tools behave on Alteryx Server to get the desired result. This post acts as a reference guide for that purpose.</p>
+<h1 id="publishing-a-workflow">Publishing a Workflow</h1>
+<p>Once you're ready to save a workflow, you can publish to your Alteryx Server by going to <code>File &gt; Save As &gt; Private Gallery &gt; My Company's Gallery</code> (this is not to be confused with <code>File &gt; Save As &gt; Public Gallery &gt; Alteryx Gallery</code> which is Alteryx's own public Gallery open to the world). You will then be greeted with this dialog box,</p>
+<p><img alt="Save Workflow Window" src="/images/blog/alteryx-server-guide - save_workflow.png" /></p>
+<p>In which,</p>
+<ol>
+<li>The workflow name - editable when doing a Save As.  </li>
+<li>The file is always published to your personal Studio. You can choose to share a workflow <em>after</em> it has been published to Gallery.  </li>
+<li>Worker Tags are used to organize shared workflows into Districts.  </li>
+<li>Add details to write messages pertaining to the current version (like a git commit message). This is especially important if you plan on regularly changing the published version.  </li>
+<li>If checked, the current and latest version is made the published version (the version that other people will run). If unchecked, other people will continue to run the old version of the workflow. But you, as an owner, will always run the latest version. This is useful for testing.  </li>
+<li>If checked, the workflow will run after publishing to inform you if it has worked correctly. Note that there are occasions, for reasons unbeknownst to me, where workflow does throw up errors but still works correctly on Server.  </li>
+<li>This windows will allow you to package assets (e.g. files and macros) up with the workflow. If an asset is checked and packaged up with the workflow then the Server will always use this copy. This might be fine for a static reference file, but undesirable for a file that is expected to change. If the asset is unchecked then the server will look for a local (to the server environment) copy of that asset. Of course, if one does not exist, or the server does not have permission to access this asset, then this will produce an error. This is perhaps the biggest source of confusion and error for Artisans. <strong>All unpackaged assets must be accessible in the server environment.</strong> And this will not include a file you've saved to your desktop.  </li>
+</ol>
+<p>Things to be aware of:  </p>
+<ul>
+<li>The terms <em>Alteryx Server</em> and <em>Alteryx Gallery</em> are often used interchangeably  </li>
+<li>You have added your company's private gallery so that it's now one of the Save as options  </li>
+<li>Your Server Admin has made you an Artisan (publisher) or Curator (administrator)  </li>
+<li>Your version of Alteryx Designer is <em>not</em> newer than the version of Alteryx Server (you can find the version of Server by going to: <em>My Profile</em> (top-right) &gt; <em>Version</em>)  </li>
+<li>Every time you "Save As" to Gallery, you are creating duplicate workflows with the same name.  </li>
+</ul>
+<h1 id="tool-behavior-on-server">Tool Behavior on Server</h1>
+<p>Unfortunately, not everything works on Server as you'd expect. I've done a bit of testing here so you don't have to.</p>
+<h2 id="inputs">Inputs</h2>
+<p>An outline for how the input tools behave on Server is shown below.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Configuration</th>
+<th>Manage Workflow Assets</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input Data</td>
+<td>C:\Users\Philip\Desktop\input.csv</td>
+<td>☑</td>
+<td>Runs as expected. But the input.csv file is packaged with the workflow and static.</td>
+</tr>
+<tr>
+<td>Input Data</td>
+<td>C:\Users\Philip\Desktop\input.csv</td>
+<td>☐</td>
+<td><em>Error: Can't find the file</em>. Alteryx Server has no knowledge of my Desktop!</td>
+</tr>
+<tr>
+<td>Input Data with File Browse</td>
+<td>C:\Users\Philip\Desktop\input.csv</td>
+<td>☐ or ☑</td>
+<td>The user can upload their own input file (of any file format)</td>
+</tr>
+<tr>
+<td>Any tool with Folder Browse</td>
+<td>-</td>
+<td>-</td>
+<td><em>Error: Problem Loading App</em>. The Folder Browse Tool cannot be used on Alteryx Server.</td>
+</tr>
+<tr>
+<td>Directory Tool</td>
+<td>C:\Users\Philip\Desktop\input.csv</td>
+<td>-</td>
+<td><em>Error: Invalid Directory</em></td>
+</tr>
+<tr>
+<td>Directory Tool</td>
+<td>C:\</td>
+<td>-</td>
+<td>Runs as expected.</td>
+</tr>
+</tbody>
+</table>
+<p>In general, the recommendation for,</p>
+<ul>
+<li><strong>Automating a process</strong> is to write to the full UNC path (e.g. <code>\\servername\path\to\file.csv</code>) of a network drive mapped locally <em>and</em> on Alteryx Server and when publishing you should have the workflow asset unchecked. If the file does not need to update dynamically (for example a reference file that doesn't change) then the file can be packaged by checking it in <em>Manage Workflow Assets</em>.  </li>
+<li><strong>Allowing the user to select a file</strong> is that any filepath could be used in with a File Browse Tool attached.</li>
+</ul>
+<h2 id="the-python-tool">The Python Tool</h2>
+<p>The Python Tool should work as expected on Server. If you are using Python modules not preinstalled with Alteryx Designer then you'll need to install these modules. I use,</p>
+<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="o">&lt;</span><span class="n">package</span><span class="o">&gt;</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+    <span class="n">Alteryx</span><span class="o">.</span><span class="n">installPackage</span><span class="p">(</span><span class="s1">&#39;&lt;package&gt;&#39;</span><span class="p">)</span>
+    <span class="kn">import</span> <span class="o">&lt;</span><span class="n">package</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>This will install the package in the<br />
+<code>C:\Program Files\Alteryx\bin\Miniconda3\envs\DesignerBaseTools_vEnv\Lib\site-packages\</code> folder - if not already installed - and then import. Note that the Server must have permission to download files. Speak to your Server Administrator.</p>
+<h2 id="the-run-command-tool">The Run Command Tool</h2>
+<p>There are two scenarios to consider when publishing a workflow that uses the Run Command Tool,</p>
+<ol>
+<li>The workflow creates the output batch script (pictured below).  </li>
+<li>The workflow runs an existing batch script.  </li>
+</ol>
+<p><img alt="The Run Command Tool configuration." src="/images/blog/alteryx-server-guide - run_command_config.png" /></p>
+<p>In scenario 1, where you create batch script at run time, you can choose whether or not to package <em>cmd.bat</em>. Although, if this changes dynamically then you'll want to have this unchecked in Manage Workflow Assets.<br />
+In scenario 2, where you are running a pre-existing batch script, then you much package the batch script with the workflow to avoid a "system cannot find the file specified" error.</p>
+<h2 id="outputs">Outputs</h2>
+<p>An outline of how the output tools behave on Alteryx Server is shown below. This is true for both <em>Standard Workflows</em> and <em>Analytic Apps</em>. </p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Configuration</th>
+<th>Manage Workflow Assets</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browse</td>
+<td>-</td>
+<td>-</td>
+<td>No output</td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>output.csv</td>
+<td>☐ or ☑</td>
+<td>Option to download output.csv</td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>output.xlsx|||Sheet1</td>
+<td>☐ or ☑</td>
+<td>Option to download output.xlsx</td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>output.yxdb</td>
+<td>☐ or ☑</td>
+<td>Option to download output as a shp, tab, mif, dbf, csv, yxdb or tde. And shows a sample (first 100 records) of the output in the browser</td>
+</tr>
+<tr>
+<td>Output Data (multiple)</td>
+<td>output1.csv &amp; output2.csv</td>
+<td>☐ or ☑</td>
+<td>Option to download each output separately</td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>C:\output.csv</td>
+<td>☑</td>
+<td>Option to download output.csv - i.e. does not save to the C drive on Alteryx Server and will change output location to <em>_externals\1\output.csv</em></td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>C:\output.csv</td>
+<td>☐</td>
+<td>Get message: "<em>This workflow produced no output</em>". And output.csv is saved to the C drive on Alteryx Server</td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>C:\Users\Philip\output.csv</td>
+<td>☑</td>
+<td>Option to download output.csv - i.e. does not save to the C:\Users\Philip folder on Alteryx Server and will change output location to <em>_externals\1\output.csv</em></td>
+</tr>
+<tr>
+<td>Output Data</td>
+<td>C:\Users\Philip\output.csv</td>
+<td>☐</td>
+<td>Get error message: <em>Output Tool - Cannot access folder C:\Users\Philip</em> - i.e. Alteryx Server cannot save to your local folder unless it is a mapped network drive that has also been mapped on Alteryx Server <em>and</em> you use the UNC path.</td>
+</tr>
+<tr>
+<td>Render</td>
+<td>-</td>
+<td>-</td>
+<td>Behaves the same way as the Output Data Tool unless specified otherwise</td>
+</tr>
+<tr>
+<td>Render</td>
+<td>Temporary PDF Document</td>
+<td>-</td>
+<td>No Output</td>
+</tr>
+<tr>
+<td>Render</td>
+<td>Temporary Excel 2007 Spreadsheet</td>
+<td>-</td>
+<td>No Output</td>
+</tr>
+<tr>
+<td>Render</td>
+<td>Temporary Composer Document</td>
+<td>-</td>
+<td>No Output</td>
+</tr>
+<tr>
+<td>Render</td>
+<td>output.pcxml</td>
+<td>☐ or ☑</td>
+<td>Option to download output as pdf, docx, xlsx, html or zip. And shows a sample (first 100 records) of the report in the browser</td>
+</tr>
+</tbody>
+</table>
+<p>In general, for maximum flexibility, if you are,  </p>
+<ul>
+<li><strong>Automating a process</strong> then you want to write to a full UNC path (e.g. <code>\\servername\path\to\file.csv</code>) of a network drive mapped locally <em>and</em> on Alteryx Server and when publishing you should have the workflow asset unchecked.  </li>
+<li><strong>Producing a data file for an end-user</strong> then write to file as <code>&lt;filename&gt;.yxdb</code> in an Output Data Tool. The workflow asset can be checked or unchecked.  </li>
+<li><strong>Producing a report for an end-user</strong> then write to file as <code>&lt;filename&gt;.pcxml</code> in the Render Tool. The workflow asset can be checked or unchecked.  </li>
+</ul>
+<h1 id="analytic-apps">Analytic Apps</h1>
+<p>The default behavior of input and output tools is the same regardless of whether your workflow is a <em>Standard Workflow</em> or <em>Analytic App</em>. In Alteryx Designer you can Show the results of say the Browse Tool when an app runs successfully. However, this will have no effect on Server. The main advantage of an App is that you can add user interface for your end-user to modify the configuration of these tools before running. </p>
+<p>Another advantage is that you can chain apps to run one after the other. In <code>app1</code> set which app to run second in the Interface Designer. Then make sure this <code>app2</code> is packaged as an asset when publishing to the Gallery.</p>
+<h1 id="versioning">Versioning</h1>
+<p>Note that other users will always run Published version of your workflow. However, if you own the workflow, you'll always run the <em>latest</em> version of a workflow.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>There's no doubt that Alteryx Server can seem like a black box at times, making it very difficult to diagnose issues. Hopefully this reference makes life a little easier when it comes to sharing workflows with your colleagues.</p>
+<p>We have not covered database access and permissions; another source of confusion and frustration, which deserves a post all unto itself.</p>
+</div>
+
+
+    
+    
+</body>
+
+</html>
