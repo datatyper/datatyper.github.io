@@ -1,10 +1,10 @@
 title: A Complete Guide to Markdown
-subtitle: The Lowdown on Markdown
-summary: Your complete guide to the Markdown language. Use it as a reference for your static website or GitHub ReadMe files.
+summary: Your complete guide to the Markdown language. Use it as a reference for your static website or GitHub README files.
 author: Philip Mannering
 date: 2021-11-23
 status: published
 category: misc
+slug: markdown
 tags: [reference, guide]
 
 [TOC]
@@ -24,7 +24,7 @@ Markdown is the simplest way to create a static website. It is a plain text form
 
 # Horizontal Rule  
 
-A horizontal rule is three or more dashes, asterisks, or underscores (e.g. `---`, `***`, `___`).  
+A horizontal rule is three or more dashes `---`, asterisks `***`, or underscores `___`
 
 ---
 
@@ -156,7 +156,7 @@ The markdown syntax for creating images is:
 This is an image: !\[](images/solar_system.png)
 {.code}
 
-This is an image: ![](images/solar_system.png)
+This is an image: ![](images/markdown-reference - solar_system.png)
 
 
 # Markdown Extra {#markdown-extra}

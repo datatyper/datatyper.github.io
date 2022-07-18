@@ -3,6 +3,7 @@ subtitle: The Fourth Type of Macro That You’ve Never Used
 summary: A Location Optimizer Macro can be used to optimize the selection of spatial objects based on criteria set by the user.
 status: published
 date: 2020-07-16
+slug: lom
 category: alteryx
 tags: [alteryx, optimization, spatial]
 
