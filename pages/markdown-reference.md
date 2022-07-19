@@ -261,7 +261,7 @@ You can also just use plain html in your markdown text. This html (with some CSS
 <div class="row" markdown=1>
 <div class="col" markdown=1>
 # Left
-The paragraph on the right
+The paragraph on the left
 </div>
 <div class="col" markdown=1>
 # Right
@@ -269,12 +269,12 @@ The paragraph on the right
 </div>
 </div>
 ```
-To get,
+The `markdown=1` attribute is included to write markdown inside html elements. The result is,
 
 <div class="row" markdown=1>
 <div class="col" markdown=1>
 # Left
-The paragraph on the right
+The paragraph on the left
 </div>
 <div class="col" markdown=1>
 # Right

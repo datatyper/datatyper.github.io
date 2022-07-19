@@ -97,7 +97,6 @@ def move_markdown():
             autoescape=select_autoescape()
         )
 
-
         blog_template = env.get_template('page.html')
         blog = blog_template.render(data)
 
@@ -110,6 +109,10 @@ def move_markdown():
             f.write(blog)
             print(f"{'Published':.>40}")
 
+    # Sort the items by date
+    items = sorted(items, key=lambda x: x['date'], reverse=True)
+
+    # Load the template and write the index file
     index_template = env.get_template('index.html')
     index = index_template.render({'items': items})
     with open("index.html", "w", encoding='utf-8') as f:

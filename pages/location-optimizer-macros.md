@@ -1,8 +1,8 @@
 title: Location Optimizer Macros
-subtitle: The Fourth Type of Macro That You’ve Never Used
-summary: A Location Optimizer Macro can be used to optimize the selection of spatial objects based on criteria set by the user.
+subtitle: The Oft Forgotten Fourth Type of Macro
+summary: Alteryx Location Optimizer Macros can be used to optimize the selection of spatial objects based on criteria set by the user.
 status: published
-date: 2020-07-16
+date: 2022-07-18
 slug: lom
 category: alteryx
 tags: [alteryx, optimization, spatial]
@@ -15,92 +15,151 @@ There are four types of macros. Though most people can't even remember the name 
 1. Standard Macros - to package up several tools into a single tool
 2. Batch Macros - to run in a loop for every batch of records in the data
 3. Iterative Macros - to run in a loop repeatedly until a condition is met
-4. Location Optimizer Macros
+4. **Location Optimizer Macros**
 
 The textbook definition of the Location Optimizer Macro is:
 
-> Runs **multiple iterations** to determine the best **suggested locations** to add or remove from a **network** based on a **score**.
+> A macro that runs over **multiple iterations** to determine the best **suggested locations** to add or remove from a **network** based on a **score**.
 
-The **network** here just refers to your spatial data.  The **multiple iterations** means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The **suggested locations** are additional spatial data points from which you are selecting from. And the **score** is some final measure - to be minimized or maximized - that's used to determine the best location(s).
+<!-- The **network** here just refers to your spatial data.  The **multiple iterations** means that like the Batch and Iterative macros, the LOMs with run multiple times to find a solution. The **suggested locations** are additional spatial data points from which you are selecting from. And the **score** is some final measure - to be minimized or maximized - that's used to determine the best location(s). -->
 
-So, for example, if you owned a bike retailer with several stores, and you wanted to open a few new stores, you could use an LOM to determine the best locations. In this scenario, 
+Where the following definitions apply,
 
+Network
+: The network is the spatial data that you are optimizing.
 
-**What is the network?** These are your existing store locations. (This is a fancy term for your current spatial data)  
-**Suggested locations?** The locations of potential new store locations. (You need to provide some viable options)  
-**Score?** In this case, we will go with the total distance between each of your customers and their *nearest* store.
+Multiple Iterations
+: Like batch and iterative macros, the LOMs run multiple times to find the _best_ solution.
 
-Two other things we need to specify is,  
-1. How many stores we wish to open and, 
-1. That we to minimize the score (we want to be close to our customers).
+Suggested Locations
+: Additional spatial data points to be selected.
 
-From their Alteryx LOMs take care of running different combinations of the LOMs to find the best solution (the locations with the lowest score).
-
-![Warning]
-(The LOM is very similar to the Optimization Tool. In the Optimization Tool you want to maximize or minimize a score - the result of the objective function. The same thing is true for LOMs, except you are adding points rather than deducing the value of decision variables. I appreciate I might have lost a lot of people with that last bit. I promise this will become more clear with a few examples)
+Score
+: Some final measure - to be minimized or maximized - that's used to determine the best location(s).
 
 
-## How does it work?
-The Location Optimizer uses two phases.    
+## Why are they useful?  
+
+As Location Optimizer Macros are so underutilized, you might well ask what they are for. They are good at finding optimum locations. This could be opening new stores to be closer to your customers, building cell towers that have the greatest coverage, identifying police patrols that are most efficient, or even dividing a region into contiguous areas to apportion workload among sales managers. Any time you're picking locations, there's a potential use case for LOMs. 
+
+If you're trying to find store locations near customers, you might ask why not calculate the distance between stores and customers for _every_ combination of stores. The answer is that this is a computationally expensive task and may take a very long time to run.  
+
+The Location Optimizer Macro uses two phases,
+
 * Phase 1 uses a generic algorithm, it starts with a random guess and keeps the best mutations as the input for Phase 2. 
 * Phase 2 then re-balances the set by iterating over small valid changes to each location until the score of the location set has been optimized.  
-  
 The Speed/Optimization control determines how long we stay in Phase 1 before completing the optimization in Phase 2.
 
 
-## Sample Workflows
-There is little guidance out there on how to use Location Optimizer Macros (or as I will refer to them going forward, LOMs). What we do have is two example workflows,
-* Optimize location by minimizing distance
-* Optimize location with a gravity model
+This means Alteryx LOMs can process larger amounts of data when it comes to deciding locations that might otherwise be unpracticable. 
 
-![[lom-sample-workflows.png]]
+!!! Info
+    The LOM is very similar to the Optimization Tool. In the Optimization Tool you also want to maximize or minimize a score - the result of the objective function - to find the value of decision variables. LOMs, except you are adding points rather than deducing the value of decision variables.
 
-The two examples provided by Alteryx provide good use cases for the 
+## The Anatomy of a Location Optimizer Macro
+Inside the guts of the macro, you will find the following:
 
-## Example 0 - A Trivial Example
-Let us look at a trivial example to get acquainted with LOMs...
+![Location Optimizer Macro](images/lom-macro.png)
+A basic example of a Location Optimizer Macro
+{.figure}
 
-(As this is a trivial example there are ways to do this without LOMs, the same way you can calculate the factorial of a number without an iterative macro, using the Generate Rows Tool and Multi-Row Formula Tool. But it still serves as a good example from which to learn how LOMs work)
+An LOM requires at least,  
 
-Four friends live in all four corners of the United States. 
-![[lom-four-friends-1.png]]
+1. A Macro Input Tool for new potential locations  
+2. A Macro Output Tool for the score.  
+3. An additional Macro Output Tool (optional) is desirable to output the best locations.
 
-And they want to meet.
+Don't forget to set the macro type to *Location Optimizer Macro* in the workflow configuration properties tab.
 
-Furthermore, they decide that it's only fair that they split the petrol costs equally between them. That is, they want to find a place that minimizes the total distance travelled.
+<div class="row" markdown=1>
+<div class="col" markdown=1>
+![workflow properties tab](images/lom-workflow-properties.png)
+The Workflow - Configuration tab
+{.figure}
+</div>
+<div class="col" markdown=1>
+![interface designer](images/lom-interface-designer.png)
+The Interface Designer - Properties tab
+{.figure}
+</div>
+</div>
 
-### Using the Centroid
+Once that's done you can set which Macro Input Tool will give you the *Potential Locations Input* and which Macro Output Tool will give you the *Score Output* in the Interface Designer window.
 
-You might think that the centroid (easily calculated using the Summarize Tool) might be a good start,
+## Using the Location Optimizer Macro
 
-![[lom-four-friends-2.png]]
+It's surprisingly easy to use the LOM. You just need to feed in a list of potential locations and the algorithm will find the best locations according to the score that you calculated within the logic of the macro.
 
-But there are a couple of problems with this.
+![Location optimizer macro usage](images/lom-usage.png)
+Using the Location Optimizer Macro in a Standard workflow
+{.figure}
 
-(Ask audience to suggest why)
+The macro configuration options allow you to set how many locations you want to add, the tradeoff between speed and accuracy, and whether you want to want the algorithm to run deterministically (to give you the same result each time) or randomly.
 
-The first issue is that the centroid falls in Wichita. And they don't want to go to Wichita. LOMs will solve this, because the algorithm will only choose from a list of *suggested locations*. And they'll only suggest locations of places they want to go.
+Notice that the required Macro Output Tool (score) gives us a number that is used to find the best location. However, we care very little about the number specifically. It's the second, optional Macro Output Tool (connected directly to the Macro Input Tool) that provides the best location(s) that gives us the answer we're interested in.
 
-Secondly, and more importantly, the centroid does not necessarily minimize distance. For example, take the case below,
+## Example: Joe's Bike Shops
+Now let's explore LOMs for a specific use case. Joe owns six bike shops. He gets investment to double this. The question we want to answer is:
 
-![[lom-four-friends-centroid-vs-min-distance.png]]
-In this example the centroid occurs at position 1. The total distance from the centroid is then 1 + 1 + 2 = 4 units.
-However, if the meeting point was position 0, then the total distance would be 0 + 0 + 3 = 3 units.
-So the centroid needn't provide the best answer. Now we turn to LOMs to solve our probllem
+> *Where should Joe open his new stores?*
 
-### Using Location Optimizer Macros
-Just like Batch and Iterative Macros we build out the solution for one iteration and then let Alteryx work its magic. The process is as follows,
-1. Set the existing locations of the network. In this case, the friend locations. This could be from an Input Data/Text Input/Map Input Tool or a Macro Input if you want your workflow to provide the existing locations dynamically.
-2. Provide a single location as template for the macro input. As with all macros, this is dummy data, so the exact location does not matter here. Name this input "Potential Locations"
-3. Calculate the *Score*. We want to minimize distance from the friends locations. So lets calculate the total distance and pass this to a Macro Output. Name this output "Score"
+First let's define the required data.
+
+**What is the network?**: These are your existing store locations. (This is a fancy term for your current spatial data)  
+**Suggested locations?**: The locations of potential new store locations. (You need to provide some viable options)  
+**Score?**: In this case, we will go with the total distance between each of your customers and their *nearest* store.  
+
+We also want to specify,
+
+**Do we want to maximize or minimize?**: Minimize (we want to be closer to our customers).  
+**How many stores we wish to add?**: 6  
+
+The following illustrates Joe's current bike shop locations,
+
+![bike shop locations](images/lom-joes-bike-shops.gif)
+Joe's existing bike shops.  →  Potential new bike shops.  →  The demand / customers.
+{.figure}
+
+### Step 1: Create the Location Optimizer Macro
+
+The macro for Joe's bike shops is similar to the basic example pictured above.
+
+![joe's bike shops macro](images/lom-joes-bike-shops-macro.png)
+Joe's bike shops macro.
+{.figure}
+
+In this example the score is the weighted average of the distance between each customer and their nearest store. And the nearest score may be either a new store _or_ an existing store. This will help get locations near customers that don't already live near an existing store. For instance, it would be completely nonsensical to open a new store across the road from one of Joe's existing stores - calculating the score using all locations prevents this from happening.
+
+Each customer is not equal. They have a weighting that makes some customers more important than others. This is why we don't simply sum the distances, but take the weighted average.
+
+Once we make this a location optimzer macro from the Workflow - Configuration tab and we can set the properties for *Potential Locations Input*, *Score Output*, and *Optimize For a Lower Score* in the Interface Designer. 
+
+### Step 2: Create the workflow
+
+Now it's ready to be used in a workflow. This is trivial. We connect up the data to the macro, set the number of new locations to add to 6 in the macro configuration, and run the macro.
+
+![joe's bike shops workflow](images/lom-joes-bike-shops-workflow.png)
+Joe's bike shops workflow.
+{.figure .small}
+
+The output is the Score - a number that is used to find the best location but ultimately not useful to us - and the six selected locations.
+
+### Step 3: Results
+
+It really is as simple as that. The macro finds the best locations in accordance with the way we calculate the score. It takes care of running for multiple iterations and spits out the best locations. the results are mapped below,
+
+![joe's bike shops workflow](images/lom-joes-bike-shops-results.png)
+Joe's suggested new bike shop locations.
+{.figure}
+
+!!! Warning
+    I have been a bit liberal with the term 'best' when referring to the 'best locations'. As the algorithm starts with a random guess that it improves upon over multiple iterations, the result may not be optimum in the true sense of the word. Two separate runs may yield different results. But you may ensure better results by increasing the number of iterations in the LOM configuration. 
+
+## Conclusion
+I started to learn about Location Optimizer Macros when I was working on a project for a client to equally distribute the zip codes the US customers live in into distinct contiguous regions with equal weighting. Not a common use case, but it goes to show how versatile the macro can be with some proper understanding of how it works. I hope this blog at least shows you what the LOM can do and sheds a little bit of light on the oft' forgotten fourth type of macro. Now go _fourth_ and optimize.
 
 
-![[lom-four-friends-macro.png]]
-
-4. Add another Macro Output. The first Macro Output only outputs the score (i.e. the minimum distance). But we'll also want to see the name of the chosen location, so we add a second Macro Output that provides this information.
-
-
-# Notes
+<!-- # Notes
 
 ## Meeting with Paige
 What it does.
@@ -126,5 +185,5 @@ However, whilst you can do analytically optimize solutions in such use cases, th
 ### 4. Do you know any good resources from which to learn?
 As for the method, there are quite a lot of academic resources for this - google brings up loads. I think I linked in the ESRI training mats in the blog which are also useful.  In Alteryx, the resources are scarce. The Sample workflows are geared toward inclusion within a gravity model problem which makes them a bit confusing to really understand. I don't have Alteryx at work now (AHHHHH), so can't really do a sample workflow easily I'm afraid (though if I can get hold of a trial license for a bit I may be able to).  
 
-A lot of the problems you might want to solve would involve a drivetime/public transport OD matrix, but I think you can fairly easily do a sample using straight line distance, which typically runs much quicker.  As I mentioned, the implementation is via a genetic algo, the basic idea being that it does a quick pass over as many of the candidate locations as possible choosing a subset to evaluate in more detail in the second pass. I think its deterministic if you set the seed, but I've not fully evaluated it - this part is very black box even if your optimization data and params are not!.
+A lot of the problems you might want to solve would involve a drivetime/public transport OD matrix, but I think you can fairly easily do a sample using straight line distance, which typically runs much quicker.  As I mentioned, the implementation is via a genetic algo, the basic idea being that it does a quick pass over as many of the candidate locations as possible choosing a subset to evaluate in more detail in the second pass. I think its deterministic if you set the seed, but I've not fully evaluated it - this part is very black box even if your optimization data and params are not!. -->
 

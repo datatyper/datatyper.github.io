@@ -101,6 +101,14 @@ img {
     // padding: 0;
 }
 
+// Captions
+.figure {
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    // margin-top: 0.5rem;
+}
+
 dl {
     @include pad-and-space();
     background-color: $neutral;

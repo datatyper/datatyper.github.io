@@ -478,6 +478,12 @@ img {
   margin: 0 auto;
 }
 
+.figure {
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
 dl {
   margin: 1rem 2.5rem;
   padding: 0.6rem 1rem;
